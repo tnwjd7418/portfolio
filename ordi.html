@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordi - 웹/앱 프로젝트</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link href="https://db.onlinewebfonts.com/c/9e7af805192dea2fe4661af9a1bc5631?family=Sages+MIND" rel="stylesheet">
+</head>
+
+<body class="ordi-page">
+    <!-- GNB Area -->
+    <nav class="top-gnb">
+        <div class="gnb-inner">
+            <div class="gnb-logo">Lim su jeong</div>
+            <ul class="gnb-menu">
+                <li><a href="index.html" class="gnb-link">Zum web</a></li>
+                <li><a href="ordi.html" class="gnb-link active">Ordi</a></li>
+                <li><a href="Lim Su Jeong 260303_ 01083864001.pdf" class="gnb-link" download>Other project<svg
+                            class="download-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 15V3M12 15L8 11M12 15L16 11M2 17V20C2 21 21 21 22 20V17" stroke="currentColor"
+                                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="ordi-body-wrapper">
+        <!-- Hero Scrollytelling Section -->
+        <section class="ordi-scrollytelling-hero" id="hero">
+            <div class="ordi-title-sticky-guard">
+                <!-- 1. Background Title (Black, Fixed) -->
+                <div class="title-layer-bg">
+                    <h1 class="ordi-title text-black">ORDI</h1>
+                </div>
+
+                <!-- 3. Foreground Title (White, JS Masked) -->
+                <div class="title-layer-fg">
+                    <h1 class="ordi-title text-white">ORDI</h1>
+                </div>
+            </div>
+
+            <!-- 2. Scrolling Image Wrapper -->
+            <div class="image-scroll-layer">
+                <div class="ordi-image-placeholder">
+                    <img src="ordi-hero-2.png" alt="Ordi Hero Image 2" class="ordi-hero-img">
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Pattern Section (Now outside scrolly for better flow) -->
+        <div class="ordi-pattern-container">
+            <img src="ordi.svg?v=2" alt="Ordi Pattern" class="ordi-pattern-img">
+            <img src="463ordi.png" alt="463 Ordi" class="ordi-463-img">
+            <div class="ordi-bilingual-row">
+                <p class="ordi-bilingual-ko">Ordi는 어플리케이션과 조명 제품을 결합한 감정 케어 서비스입니다.<br>어플리케이션과 제품의 인터랙션을 통한 새로운 경험을
+                    제공합니다.</p>
+                <p class="ordi-bilingual-en">Ordi is an emotional care service combining a mobile application and a
+                    lighting product. It delivers a new experience through the interaction between the app and the
+                    physical device.</p>
+            </div>
+        </div>
+
+        <!-- Ordi SVG above survey -->
+        <div class="ordi-survey-svg-wrap">
+            <img src="ordi.svg?v=2" alt="Ordi" class="ordi-survey-svg">
+            <span class="ordi-survey-svg-label">INSIGHT</span>
+            <p class="ordi-survey-heading"><span class="ordi-survey-heading-blue">다이어리 사용자</span>들에게 물어봤어요</p>
+        </div>
+
+        <!-- Survey Card Section -->
+        <section class="ordi-survey-section" id="insight">
+            <div class="survey-card">
+                <div class="survey-card-header">
+                    <span class="survey-q-pill">Q.01</span>
+                    <span class="survey-meta">객관식, 20명</span>
+                </div>
+                <h3 class="survey-title">어떤 다이어리를 사용하세요?</h3>
+                <div class="survey-card-body">
+                    <div class="donut-labels">
+                        <span class="donut-label label-analog">아날로그 5명</span>
+                        <span class="donut-label label-digital">디지털 7명</span>
+                    </div>
+                    <div class="donut-wrapper">
+                        <div class="donut-chart"></div>
+                        <div class="donut-hole">
+                            <span class="donut-center-value">8명</span>
+                            <span class="donut-center-label">디지털 및<br>아날로그 병행</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="survey-card survey-card-wide">
+                <div class="survey-card-header">
+                    <span class="survey-q-pill">Q.02</span>
+                    <span class="survey-meta">주관식, 디지털 및 아날로그 병행 사용자 8명</span>
+                </div>
+                <h3 class="survey-title">두 종류의 다이어리를 함께 사용할 때<br>불편했던 점은 무엇인가요?</h3>
+                <div class="survey-quote-grid">
+                    <div class="survey-quote-card survey-quote-highlighted">
+                        <div class="survey-quote-left">
+                            <span class="survey-quote-count">4명</span>
+                        </div>
+                        <div class="survey-quote-right">
+                            <span class="survey-quote-label">이중기록</span>
+                            <p class="survey-quote-text">같은 걸 두 번 쓰는 게 비효율적이에요</p>
+                        </div>
+                        <span class="survey-quote-badge">가장 많은 답변</span>
+                    </div>
+                    <div class="survey-quote-card">
+                        <div class="survey-quote-left">
+                            <span class="survey-quote-count">3명</span>
+                        </div>
+                        <div class="survey-quote-right">
+                            <span class="survey-quote-label">내용 분산</span>
+                            <p class="survey-quote-text">어떤 날은 어플에만, 어떤 날은 종이 다이어리에만 쓰기도 해요</p>
+                        </div>
+
+                    </div>
+                    <div class="survey-quote-card">
+                        <div class="survey-quote-left">
+                            <span class="survey-quote-count">1명</span>
+                        </div>
+                        <div class="survey-quote-right">
+                            <span class="survey-quote-label">피로감</span>
+                            <p class="survey-quote-text">두 개를 동시에 유지하는 게 피로해요</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Insight Summary Card Section -->
+        <section class="ordi-insight-summary-section">
+            <div class="insight-summary-card">
+                <div class="insight-badge">INSIGHT 1</div>
+                <p class="insight-text">
+                    다이어리를 쓰는 대다수의 사람들이 디지털 다이어리와<br>
+                    아날로그 다이어리를 함께 사용하지만, <span class="highlight">두 번 기록해야 하는 번거로움이 있어요</span>
+                </p>
+            </div>
+        </section>
+
+        <!-- Spacer between sections -->
+        <div style="height: 100px; background-color: #FFFFFF;"></div>
+
+        <!-- Second Survey Section (Q.03-Q.05) -->
+        <section class="ordi-survey-section-3col">
+            <!-- Q.03 Card -->
+            <div class="survey-card-3col">
+                <div class="survey-card-header">
+                    <span class="survey-q-pill">Q.03</span>
+                    <span class="survey-meta">객관식, 아날로그 다이어리 사용자 5명</span>
+                </div>
+                <h3 class="survey-title">아날로그 다이어리,<br>왜 사용하세요?</h3>
+                <div class="survey-bars">
+                    <div class="survey-bar-item">
+                        <div class="bar-label-row">
+                            <span class="bar-name highlight-blue">다꾸</span>
+                            <span class="bar-count">2명</span>
+                        </div>
+                        <div class="bar-track">
+                            <div class="bar-fill" style="--fill-width: 40%;"></div>
+                        </div>
+                    </div>
+                    <div class="survey-bar-item">
+                        <div class="bar-label-row">
+                            <span class="bar-name highlight-blue">감정 몰입</span>
+                            <span class="bar-count">2명</span>
+                        </div>
+                        <div class="bar-track">
+                            <div class="bar-fill" style="--fill-width: 40%;"></div>
+                        </div>
+                    </div>
+                    <div class="survey-bar-item">
+                        <div class="bar-label-row">
+                            <span class="bar-name">성취감</span>
+                            <span class="bar-count">1명</span>
+                        </div>
+                        <div class="bar-track">
+                            <div class="bar-fill bar-fill-light" style="--fill-width: 20%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Q.04 Card -->
+            <div class="survey-card-3col">
+                <div class="survey-card-header">
+                    <span class="survey-q-pill">Q.04</span>
+                    <span class="survey-meta">객관식, 디지털 다이어리 사용자 15명</span>
+                </div>
+                <h3 class="survey-title">디지털 다이어리,<br>왜 사용하세요?</h3>
+                <div class="survey-bars">
+                    <div class="survey-bar-item">
+                        <div class="bar-label-row">
+                            <span class="bar-name highlight-blue">편의성</span>
+                            <span class="bar-count">7명</span>
+                        </div>
+                        <div class="bar-track">
+                            <div class="bar-fill" style="--fill-width: 46%;"></div>
+                        </div>
+                    </div>
+                    <div class="survey-bar-item">
+                        <div class="bar-label-row">
+                            <span class="bar-name">데이터화</span>
+                            <span class="bar-count">5명</span>
+                        </div>
+                        <div class="bar-track">
+                            <div class="bar-fill bar-fill-medium" style="--fill-width: 33%;"></div>
+                        </div>
+                    </div>
+                    <div class="survey-bar-item">
+                        <div class="bar-label-row">
+                            <span class="bar-name">분실 없음</span>
+                            <span class="bar-count">3명</span>
+                        </div>
+                        <div class="bar-track">
+                            <div class="bar-fill bar-fill-light" style="--fill-width: 20%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Q.05 Card -->
+            <div class="survey-card-3col">
+                <div class="survey-card-header">
+                    <span class="survey-q-pill">Q.05</span>
+                    <span class="survey-meta">주관식, 디지털 다이어리 사용자 15명</span>
+                </div>
+                <h3 class="survey-title">디지털 다이어리에서<br>아쉬운 점이 있나요?</h3>
+                <div class="survey-quote-grid-mini">
+                    <div class="quote-item-mini">
+                        <span class="quote-tag">감정 몰입</span>
+                        <p class="quote-msg">종이 다이어리보다는 감정 몰입이 잘 안돼요</p>
+                    </div>
+                    <div class="quote-item-mini">
+                        <span class="quote-tag">성취감</span>
+                        <p class="quote-msg">쌓인 기록의 실물이 없어서 성취감이 덜해요</p>
+                    </div>
+                    <div class="quote-item-mini">
+                        <span class="quote-tag">기능</span>
+                        <p class="quote-msg">꾸미기 어플, 분석 어플 따로예요</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Insight Summary Card 2 Section -->
+        <section class="ordi-insight-summary-section">
+            <div class="insight-summary-card">
+                <div class="insight-badge">INSIGHT 2</div>
+                <p class="insight-text">
+                    아날로그 다이어리의 <span class="highlight">감성</span>과<br>
+                    디지털 다이어리의 <span class="highlight">편리함</span>을 함께하는 다이어리 서비스가 필요해요
+                </p>
+            </div>
+        </section>
+
+        <!-- Analysis & Insight Pillared Section -->
+        <section class="ordi-pillared-section">
+            <!-- Pillar Left -->
+            <div class="pillar-left">
+                <div class="pillar-row">
+                    <!-- Card 01: Competitive Analysis -->
+                    <div class="pillar-card">
+                        <div class="pillar-card-header">
+                            <span class="pillar-q-pill">01</span>
+                            <h3 class="pillar-title">비슷한 서비스와의 비교</h3>
+                        </div>
+                        <div class="pillar-content">
+                            <!-- Group 1 -->
+                            <div class="analysis-box">
+                                <div class="app-icon-group">
+                                    <div class="app-icon-item">
+                                        <img src="harucong.png" alt="하루콩" class="app-icon-img">
+                                        <span class="app-name">하루콩</span>
+                                    </div>
+                                    <div class="app-icon-item">
+                                        <img src="moody.png" alt="무디" class="app-icon-img">
+                                        <span class="app-name">무디</span>
+                                    </div>
+                                </div>
+                                <p class="pillar-card-desc text-center">
+                                    일일이 감정 키워드를 입력하는 불편함
+                                </p>
+                            </div>
+
+                            <!-- Group 2 -->
+                            <div class="analysis-box">
+                                <div class="app-icon-group">
+                                    <div class="app-icon-item">
+                                        <img src="dapda.png" alt="답다" class="app-icon-img">
+                                        <span class="app-name">답다</span>
+                                    </div>
+                                    <div class="app-icon-item">
+                                        <img src="ra.jpg" alt="라일리 하루" class="app-icon-img">
+                                        <span class="app-name">라일리 하루</span>
+                                    </div>
+                                    <div class="app-icon-item">
+                                        <img src="journal.svg" alt="Journal" class="app-icon-img">
+                                        <span class="app-name">Journal</span>
+                                    </div>
+                                </div>
+                                <p class="pillar-card-desc text-center">
+                                    감정 그 자체에만 초점을 둔 아쉬운 분석
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 02: Cognitive Perspective -->
+                    <div class="pillar-card">
+                        <div class="pillar-card-header">
+                            <span class="pillar-q-pill">02</span>
+                            <h3 class="pillar-title">인지적 관점</h3>
+                        </div>
+                        <div class="pillar-content">
+                            <div class="analysis-box">
+                                <div class="fatigue-box">
+                                    <div class="f-title-badge">
+                                        <img src="ordi book.png" alt="Ordi Book" class="badge-icon">
+                                        결정 피로
+                                    </div>
+                                    <p class="f-desc">
+                                        개인이 장시간 의사결정을 한 후 내리는<br>
+                                        의사결정의 질이 저하되는 현상
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="pillar-step-list text-center">
+                                <p class="step-14">힘든 하루 일과,</p>
+                                <p class="step-16">복잡한 작성 과정</p>
+                                <p class="step-20">피로 누적</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- INSIGHT 3 Card -->
+                <div class="pillar-insight-card">
+                    <div class="p-insight-badge">INSIGHT 3</div>
+                    <p class="p-insight-text">
+                        감정의 원인을 더욱 편리하게 카테고리화
+                    </p>
+                </div>
+            </div>
+
+            <!-- Pillar Right -->
+            <div class="pillar-right">
+                <!-- Card 03: Interaction Perspective -->
+                <div class="pillar-card card-full">
+                    <div class="pillar-card-header">
+                        <span class="pillar-q-pill">03</span>
+                        <h3 class="pillar-title">인터랙션 관점</h3>
+                    </div>
+                    <div class="pillar-content">
+                        <!-- Group 1 -->
+                        <div class="analysis-box">
+                            <div class="psych-ball-group">
+                                <div class="psych-ball-item ball-yellow">활기</div>
+                                <div class="psych-ball-item ball-blue">우울</div>
+                            </div>
+                            <p class="pillar-card-desc text-center">
+                                심리적으로 의미가 다른 색상
+                            </p>
+                        </div>
+
+                        <!-- Group 2 -->
+                        <div class="analysis-box">
+                            <div class="temp-pill-container">
+                                <div class="temp-pill-bar">
+                                    <span class="temp-label left">활기,집중</span>
+                                    <span class="temp-label right">스트레스 이완</span>
+                                </div>
+                            </div>
+                            <p class="pillar-card-desc text-center">
+                                색 온도 별로 다른 심리적 효과
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- INSIGHT 4 Card -->
+                <div class="pillar-insight-card">
+                    <div class="p-insight-badge">INSIGHT 4</div>
+                    <p class="p-insight-text">
+                        인터랙션 조명 제공
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Strategy Wrapper (heading + background + slider) -->
+        <div class="strategy-wrapper" id="strategy">
+            <!-- New Section Heading -->
+            <div class="ordi-survey-svg-wrap no-bg">
+                <img src="ordi.svg?v=2" alt="Ordi" class="ordi-survey-svg">
+                <span class="ordi-survey-svg-label">STRATEGY</span>
+                <p class="ordi-survey-heading">
+                    <span class="ordi-survey-heading-blue">아날로그와 디지털의 장점</span>을 계승한<br>
+                    감정 중점 다이어리 서비스!
+                </p>
+            </div>
+
+            <!-- Background Image (absolute positioned behind content) -->
+            <div class="strategy-bg-layer">
+                <img src="ordi Cloud back.png" alt="Ordi Vision" class="vision-full-img">
+            </div>
+
+            <!-- Strategy Dual Cards -->
+            <section class="strategy-cards-section">
+                <div class="strategy-grid">
+                    <div class="strategy-card strategy-fade" style="transition-delay: 0s;">
+                        <div class="strategy-label">01</div>
+                        <h3 class="strategy-title">
+                            작성은 더 <span class="highlight-blue">간편하게,</span><br>
+                            감성은 더 <span class="highlight-blue">몰입되게</span>
+                        </h3>
+                        <p class="strategy-desc">
+                            감정의 변인을 수동으로 기록하거나<br>
+                            앱과 아날로그 다이어리를 두 번 기록하게 되는<br>
+                            번거로운 과정을 최소화할 수 있는 기획
+                        </p>
+                    </div>
+                    <div class="strategy-card strategy-fade" style="transition-delay: 0.3s;">
+                        <div class="strategy-label">02</div>
+                        <h3 class="strategy-title">
+                            어플리케이션과 제품의<br>
+                            인터랙션을 통한 <span class="highlight-blue">새로운 경험</span>
+                        </h3>
+                        <p class="strategy-desc">
+                            제품을 통해 디지털 다이어리의<br>
+                            한계를 보완하고<br>
+                            조명을 활용해 실질적인 심신 케어를 제공
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Insight Slider Section (direct child of body for full width) -->
+        <section class="insight-slider-section ordi-auto-slider">
+            <div class="insight-slider-container">
+                <div class="insight-slider-track">
+                    <!-- Insight 1 -->
+                    <div class="pillar-insight-card slider-item">
+                        <div class="p-insight-badge">INSIGHT 1</div>
+                        <p class="p-insight-text">아날로그와 디지털 병행 사용 시<br>이중 기록의 번거로움 존재</p>
+                    </div>
+                    <!-- Insight 2 -->
+                    <div class="pillar-insight-card slider-item">
+                        <div class="p-insight-badge">INSIGHT 2</div>
+                        <p class="p-insight-text">감성과 편리함이 공존하는<br>새로운 다이어리 서비스 필요</p>
+                    </div>
+                    <!-- Insight 3 -->
+                    <div class="pillar-insight-card slider-item">
+                        <div class="p-insight-badge">INSIGHT 3</div>
+                        <p class="p-insight-text">감정의 원인을 더욱 편리하게<br>데이터 기반으로 카테고리화</p>
+                    </div>
+                    <!-- Insight 4 -->
+                    <div class="pillar-insight-card slider-item">
+                        <div class="p-insight-badge">INSIGHT 4</div>
+                        <p class="p-insight-text">인터랙션 조명을 통한<br>실질적인 정서적 케어 제공</p>
+                    </div>
+
+                    <!-- Duplicated for Loop -->
+                    <div class="pillar-insight-card slider-item">
+                        <div class="p-insight-badge">INSIGHT 1</div>
+                        <p class="p-insight-text">아날로그와 디지털 병행 사용 시<br>이중 기록의 번거로움 존재</p>
+                    </div>
+                    <div class="pillar-insight-card slider-item">
+                        <div class="p-insight-badge">INSIGHT 2</div>
+                        <p class="p-insight-text">감성과 편리함이 공존하는<br>새로운 다이어리 서비스 필요</p>
+                    </div>
+                    <div class="pillar-insight-card slider-item">
+                        <div class="p-insight-badge">INSIGHT 3</div>
+                        <p class="p-insight-text">감정의 원인을 더욱 편리하게<br>데이터 기반으로 카테고리화</p>
+                    </div>
+                    <div class="pillar-insight-card slider-item">
+                        <div class="p-insight-badge">INSIGHT 4</div>
+                        <p class="p-insight-text">인터랙션 조명을 통한<br>실질적인 정서적 케어 제공</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Gradient fade to dark (#17171c) -->
+        <div class="ordi-bottom-gradient"></div>
+    </div>
+
+    <!-- Footer Assets Section -->
+    <section class="ordi-footer-assets" id="branding">
+        <div class="ordi-footer-brand-header footer-fade">
+            <img src="ordi.svg?v=2" alt="Ordi" class="footer-brand-svg">
+            <span class="footer-brand-title">BRANDING</span>
+        </div>
+
+        <div class="footer-assets-container footer-fade">
+            <img src="ordi asset 3.png" alt="Ordi Asset 3" class="footer-asset-img-full">
+        </div>
+
+        <div class="ordi-footer-brand-header ia-header footer-fade">
+            <img src="ordi.svg?v=2" alt="Ordi" class="footer-brand-svg">
+            <span class="footer-brand-title">IA (INFORMATION ARCHITECTURE)</span>
+        </div>
+
+        <div class="ordi-ia-flow-container footer-fade">
+            <div class="ia-grid">
+                <div class="ia-top-pill">로그인 / 기기 ON<span class="node node-b"></span></div>
+
+                <!-- Column 1: Home -->
+                <div class="ia-col">
+                    <div class="ia-pill-main">홈 <span class="node node-b"></span></div>
+                </div>
+
+                <!-- Column 2: Calendar -->
+                <div class="ia-col">
+                    <div class="ia-pill-main">캘린더 <span class="node node-b"></span></div>
+                </div>
+
+                <!-- Column 3: Control -->
+                <div class="ia-col">
+                    <div class="ia-pill-main">기기 조작 <span class="node node-b"></span></div>
+                    <div class="ia-vertical-gap"></div>
+                    <div class="ia-stack-v">
+                        <div class="ia-pill-sub"><span class="node node-l"></span> 프린트 <span class="node node-b"></span>
+                        </div>
+                        <div class="ia-pill-sub"><span class="node node-l"></span> 조명</div>
+                        <div class="ia-bracket-left"></div>
+                    </div>
+                </div>
+
+                <!-- Column 4: Analysis -->
+                <div class="ia-col">
+                    <div class="ia-pill-main">분석 <span class="node node-b"></span></div>
+                    <div class="ia-split-path"></div>
+                    <div class="ia-row-sub">
+                        <div class="ia-pill-sub small"><span class="node node-t"></span>월간<span
+                                class="node node-b"></span></div>
+                        <div class="ia-pill-sub small"><span class="node node-t"></span>연간<span
+                                class="node node-b"></span></div>
+                    </div>
+                    <div class="ia-merge-path"></div>
+                    <div class="ia-stack-v stack-tight">
+                        <div class="ia-pill-sub long">마음 온도 분석 <span class="node node-b"></span></div>
+                        <div class="ia-pill-sub long">키워드별 분석 <span class="node node-b"></span></div>
+                        <div class="ia-pill-sub long">운동량별 분석 <span class="node node-b"></span></div>
+                        <div class="ia-pill-sub long">수면양별 분석 <span class="node node-b"></span></div>
+                        <div class="ia-pill-sub long">단어별 분석</div>
+                    </div>
+                </div>
+
+                <!-- Column 5: My Page -->
+                <div class="ia-col">
+                    <div class="ia-pill-main">마이페이지 <span class="node node-b"></span></div>
+                    <div class="ia-vertical-gap large"></div>
+                    <div class="ia-stack-v">
+                        <div class="ia-pill-sub long">기록 수 열람 <span class="node node-b"></span></div>
+                        <div class="ia-pill-sub long">기기 연결 및 설정 <span class="node node-b"></span></div>
+                        <div class="ia-pill-sub long">어플 설정</div>
+                    </div>
+                </div>
+
+                <!-- Absolute overlays inside grid for correct coordinate space -->
+                <div class="ia-diary-group">
+                    <div class="ia-join-bracket"></div>
+                    <div class="ia-stack-v">
+                        <div class="ia-pill-sub">일기 작성 <span class="node node-b"></span><span
+                                class="node node-r"></span></div>
+                        <div class="ia-pill-sub">일기 열람 <span class="node node-r"></span></div>
+                        <div class="ia-bracket-right"></div>
+                    </div>
+                </div>
+
+                <div class="ia-main-hub">
+                    <div class="ia-pill-center">Key features <span class="node node-l"></span><span
+                            class="node node-r"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Key Features Header -->
+        <div class="ordi-footer-brand-header features-header footer-fade" id="features">
+            <img src="ordi.svg?v=2" alt="Ordi" class="footer-brand-svg">
+            <span class="footer-brand-title">STEP 1</span>
+            <div class="footer-brand-subtitle"><span class="footer-highlight-yellow">마음 날씨</span>를 입력해주세요</div>
+            <p class="footer-brand-description">게이지를 조절하며 오늘 내 마음을 가장 잘 표현할 수 있는 색상을 찾아보세요.<br>직관적인 마음 온도 표현을 위해 인간이 느끼는
+                감정과 색온도를 대응했습니다.</p>
+        </div>
+
+        <!-- App Showcase: Screenshot + Emotion Cards -->
+        <div class="ordi-app-showcase footer-fade">
+            <div class="app-screenshot-wrap">
+                <img src="ordi app.png" alt="Ordi App" class="app-screenshot-img">
+            </div>
+            <div class="emotion-cards-stack">
+                <div class="emotion-card">
+                    <img src="sad.png" alt="매우 흐림" class="emotion-icon">
+                    <div class="emotion-info">
+                        <div class="emotion-header-row">
+                            <span class="emotion-name color-sad">매우 흐림</span>
+                            <span class="emotion-temp color-cold">1°~ 5°</span>
+                        </div>
+                        <p class="emotion-desc">아주 우울한 마음 상태를 흐리고 차가운 날씨로 표현했습니다</p>
+                    </div>
+                </div>
+                <div class="emotion-card">
+                    <img src="gloom.png" alt="흐림" class="emotion-icon">
+                    <div class="emotion-info">
+                        <div class="emotion-header-row">
+                            <span class="emotion-name color-gloom">흐림</span>
+                            <span class="emotion-temp color-cold">-6°~ 10°</span>
+                        </div>
+                        <p class="emotion-desc">불쾌한 마음 상태를 흐리고 뿌연 날씨로 표현했습니다</p>
+                    </div>
+                </div>
+                <div class="emotion-card">
+                    <img src="nomal.png" alt="보통" class="emotion-icon">
+                    <div class="emotion-info">
+                        <div class="emotion-header-row">
+                            <span class="emotion-name color-normal">보통</span>
+                            <span class="emotion-temp color-mid">11°~ 15°</span>
+                        </div>
+                        <p class="emotion-desc">평온한 마음 상태를 쾌청하고 온화한 날씨로 표현했습니다</p>
+                    </div>
+                </div>
+                <div class="emotion-card">
+                    <img src="glad.png" alt="맑음" class="emotion-icon">
+                    <div class="emotion-info">
+                        <div class="emotion-header-row">
+                            <span class="emotion-name color-glad">맑음</span>
+                            <span class="emotion-temp color-warm">16°~ 20°</span>
+                        </div>
+                        <p class="emotion-desc">기쁜 마음 상태를 맑고 따스한 날씨로 표현했습니다</p>
+                    </div>
+                </div>
+                <div class="emotion-card">
+                    <img src="good.png" alt="아주 맑음" class="emotion-icon">
+                    <div class="emotion-info">
+                        <div class="emotion-header-row">
+                            <span class="emotion-name color-good">아주 맑음</span>
+                            <span class="emotion-temp color-warm">21°~ 25°</span>
+                        </div>
+                        <p class="emotion-desc">아주 기쁜 마음 상태를 맑고 따뜻한 날씨로 표현했습니다</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- STEP 2 Header -->
+        <div class="ordi-footer-brand-header features-header footer-fade" style="margin-top: 100px;">
+            <img src="ordi.svg?v=2" alt="Ordi" class="footer-brand-svg">
+            <span class="footer-brand-title">STEP 2</span>
+            <div class="footer-brand-subtitle"><span class="footer-highlight-yellow">키워드</span>를 확인해보세요</div>
+            <p class="footer-brand-description">일기를 작성하면 내용을 분석해 키워드를 자동으로 설정합니다.<br>키워드들은 기분 분석에서 활용됩니다.</p>
+        </div>
+
+        <!-- STEP 2 Showcase -->
+        <div class="ordi-app-showcase footer-fade showcase-full-width">
+            <img src="keyword icon.png" alt="Keywords Showcase" class="full-width-showcase-img">
+        </div>
+
+        <!-- STEP 3 Header -->
+        <div class="ordi-footer-brand-header features-header footer-fade" style="margin-top: 100px;">
+            <img src="ordi.svg?v=2" alt="Ordi" class="footer-brand-svg">
+            <span class="footer-brand-title">STEP 3</span>
+            <div class="footer-brand-subtitle"><span class="footer-highlight-yellow">통계 및 기록</span>을 확인해보세요</div>
+            <p class="footer-brand-description">일별, 월별로 기록된 마음 날씨를 통해 내 마음의 흐름을 파악할 수 있습니다.<br>시간이 흐름에 따라 변화하는 감정의 추이를
+                한눈에 확인하세요.</p>
+        </div>
+
+        <!-- STEP 3 Showcase -->
+        <div class="ordi-app-showcase footer-fade showcase-full-width">
+            <img src="phones.png" alt="Statistics Showcase" class="full-width-showcase-img">
+        </div>
+
+        <!-- Front/Back Cards Offset Layout -->
+        <div class="ordi-cards-showcase footer-fade">
+            <div class="card-img-wrap">
+                <img src="front.png" alt="Card Front" class="card-img-content card-img-front-offset">
+                <div class="card-label-item text-right label-bottom">
+                    <span class="card-label-text">그 날의 일상을 세세하게 들여다 볼 수 있는<br>심플한 카드 디자인</span>
+                </div>
+            </div>
+
+            <div class="card-img-wrap">
+                <div class="card-label-item text-left label-top">
+                    <span class="card-label-text">그 날의 기분과 일상을 한 눈에 볼 수 있는<br>감각적인 카드 디자인</span>
+                </div>
+                <img src="back.png" alt="Card Back" class="card-img-content">
+            </div>
+        </div>
+
+        <!-- STEP 4 Unified Section -->
+        <div class="ordi-step-unified-section footer-fade">
+            <div class="step-unified-container">
+                <img src="phones 3.png" alt="Mood Analysis" class="step-unified-img">
+                <div class="step-unified-text-overlay">
+                    <div class="ordi-footer-brand-header text-left-align">
+                        <img src="ordi.svg?v=2" alt="Ordi" class="footer-brand-svg">
+                        <span class="footer-brand-title">STEP 4</span>
+                        <div class="footer-brand-subtitle"><span class="footer-highlight-yellow">내 기분</span>을 분석해보세요
+                        </div>
+                        <p class="footer-brand-description">여러 가지 항목별로 마음을 분석해요.<br>한 달 단위와 한 해 단위로 내 마음을 확인할 수 있어요.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ordi-app-showcase footer-fade showcase-full-width"
+            style="display: flex; flex-direction: column; align-items: center; margin-top: 100px;">
+            <div style="width: 1400px; max-width: 100%;">
+                <img src="a.png" alt="Step 4 Details" style="width: 100%; display: block; border-radius: 40px;">
+            </div>
+        </div>
+
+        <!-- STEP 5 -->
+        <div class="ordi-footer-brand-header footer-fade"
+            style="margin-top: 100px; justify-content: center; text-align: center;">
+            <img src="ordi.svg?v=2" alt="Ordi" class="footer-brand-svg" style="margin: 0 auto 16px;">
+            <span class="footer-brand-title">STEP 5</span>
+            <div class="footer-brand-subtitle"><span class="footer-highlight-yellow">내 마음을 위한</span> 조명을 틀어보세요</div>
+            <p class="footer-brand-description">마음 상태에 따라 효과가 다른 조명을 제공합니다.</p>
+        </div>
+
+        <div class="ordi-app-showcase footer-fade showcase-full-width"
+            style="display: flex; flex-direction: column; align-items: center;">
+            <div style="width: 1400px; max-width: 100%;">
+                <img src="b.png" alt="Step 5 App" style="width: 100%; display: block;">
+            </div>
+        </div>
+
+        <!-- STEP 6 -->
+        <div class="ordi-footer-brand-header footer-fade"
+            style="margin-top: 100px; justify-content: center; text-align: center;">
+            <img src="ordi.svg?v=2" alt="Ordi" class="footer-brand-svg" style="margin: 0 auto 16px;">
+            <span class="footer-brand-title">STEP 6</span>
+            <div class="footer-brand-subtitle"><span class="footer-highlight-yellow">내 기록을</span> 아날로그로 남겨 보세요</div>
+            <p class="footer-brand-description">ORDI 기기를 통해 조명뿐만 아니라<br>기록물도 아날로그로 남겨둘 수 있습니다.</p>
+        </div>
+
+        <div class="ordi-app-showcase footer-fade showcase-full-width"
+            style="display: flex; flex-direction: column; align-items: center;">
+            <div style="width: 1400px; max-width: 100%;">
+                <img src="c.png" alt="Step 6 App" style="width: 100%; display: block;">
+            </div>
+        </div>
+
+        <!-- Spacer between Step 6 and Gallery Slider -->
+        <div style="height: 100px;"></div>
+
+        <!-- Images d to h Gallery Slider -->
+        <div class="ordi-app-showcase footer-fade showcase-full-width gallery-slider-section">
+            <div class="image-gallery-slider">
+                <div class="gallery-nav">
+                    <button class="gallery-prev" aria-label="Previous image">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15 18L9 12L15 6" stroke="white" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <button class="gallery-next" aria-label="Next image">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 18L15 12L9 6" stroke="white" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="gallery-container">
+                    <div class="gallery-track">
+                        <img src="d.png" alt="Screen D" class="gallery-img">
+                        <img src="e.png" alt="Screen E" class="gallery-img">
+                        <img src="f.png" alt="Screen F" class="gallery-img">
+                        <img src="g.png" alt="Screen G" class="gallery-img">
+                        <img src="h.png" alt="Screen H" class="gallery-img">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Essential script for intersection clipping -->
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Navigator highlighting logic
+            const sections = [
+                document.getElementById('hero'),
+                document.getElementById('insight'),
+                document.getElementById('strategy'),
+                document.getElementById('branding')
+            ].filter(el => el !== null);
+
+            const navLinks = Array.from(document.querySelectorAll('.nav-link'));
+
+            function highlightNav() {
+                const scrollPos = window.scrollY + 150;
+                let activeId = sections[0].id;
+
+                for (const section of sections) {
+                    if (scrollPos >= section.offsetTop) {
+                        activeId = section.id;
+                    } else {
+                        break;
+                    }
+                }
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${activeId}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', highlightNav);
+            window.addEventListener('load', highlightNav);
+            highlightNav();
+
+            // Smooth scroll
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    const targetId = link.getAttribute('href');
+                    if (targetId.startsWith('#')) {
+                        e.preventDefault();
+                        const targetEl = document.querySelector(targetId);
+                        if (targetEl) {
+                            window.scrollTo({
+                                top: targetEl.offsetTop - 80,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+    <nav class="glass-nav">
+        <ul>
+            <li><a href="#hero" class="nav-link active">개요</a></li>
+            <li><a href="#insight" class="nav-link">인사이트</a></li>
+            <li><a href="#strategy" class="nav-link">기획</a></li>
+            <li><a href="#branding" class="nav-link">디자인</a></li>
+        </ul>
+    </nav>
+</body>
+
+</html>

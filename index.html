@@ -1,0 +1,1321 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>프론트 위젯 디자인</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link href="https://db.onlinewebfonts.com/c/9e7af805192dea2fe4661af9a1bc5631?family=Sages+MIND" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="top-gnb">
+        <div class="gnb-inner">
+            <div class="gnb-logo">Lim su jeong</div>
+            <ul class="gnb-menu">
+                <li><a href="index.html" class="gnb-link active">Zum web</a></li>
+                <li><a href="ordi.html" class="gnb-link">Ordi</a></li>
+                <li><a href="Lim Su Jeong 260303_ 01083864001.pdf" class="gnb-link" download>Other project<svg
+                            class="download-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 15V3M12 15L8 11M12 15L16 11M2 17V20C2 21 21 21 22 20V17" stroke="currentColor"
+                                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg></a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="sticky-bg"></div>
+    <div class="gradient-overlay"></div>
+    <div class="container">
+        <header id="overview">
+            <div class="badge">Web UX</div>
+            <h1>프론트 위젯 디자인</h1>
+        </header>
+
+        <section class="overview">
+            <h2>프로젝트 개요</h2>
+            <div class="overview-details">
+                <div class="detail-row">
+                    <span class="label">기간</span>
+                    <span class="value date">2025.11.18 - 2025.12.20</span>
+                </div>
+                <div class="detail-row">
+                    <span class="label">투입인원</span>
+                    <div class="value-group">
+                        <span class="value">프로덕트 디자이너 (1)</span>
+                        <span class="value">프론트엔드 개발자 (1)</span>
+                        <span class="value">데이터 엔지니어 (1)</span>
+                        <span class="value">프로덕트 오너 (1)</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="metrics">
+            <h2>개선 지표</h2>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="card-header">
+                        <h3>회원가입수</h3>
+                        <div class="trend positive">
+                            <span class="arrow">▲</span> <span class="count-up" data-target="51">0</span>%
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="comparison-row">
+                            <span class="compare-label">비교 기간</span>
+                            <span class="compare-range">10.17-11.17 / 11.18-12.18</span>
+                        </div>
+                        <div class="data-row">
+                            <span class="data-label">가입 수</span>
+                            <span class="data-value">1458 <span class="arrow-mini">▶</span> 4056</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="card-header">
+                        <h3>웹툰 클릭수</h3>
+                        <div class="trend positive">
+                            <span class="arrow">▲</span> <span class="count-up" data-target="178">0</span>%
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="comparison-row">
+                            <span class="compare-label">비교 기간</span>
+                            <span class="compare-range">10.17-11.17 / 11.18-12.18</span>
+                        </div>
+                        <div class="data-row">
+                            <span class="data-label">평균</span>
+                            <span class="data-value">205 <span class="arrow-mini">▶</span> 571</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="card-header">
+                        <h3>쇼핑 클릭수</h3>
+                        <div class="trend positive">
+                            <span class="arrow">▲</span> <span class="count-up" data-target="12">0</span>%
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="comparison-row">
+                            <span class="compare-label">비교 기간</span>
+                            <span class="compare-range">10.17-11.17 / 11.18-12.18</span>
+                        </div>
+                        <div class="data-row">
+                            <span class="data-label">평균</span>
+                            <span class="data-value">2231 <span class="arrow-mini">▶</span> 2502</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="problem-definition" id="problems">
+            <div class="problem-header">
+                <div class="badge">BACKGROUND</div>
+                <h2>문제 정의 및 위젯 도입의 배경</h2>
+            </div>
+
+            <div class="problem-content">
+                <div class="problem-list">
+                    <div class="problem-item">
+                        <div class="problem-number">1</div>
+                        <div class="problem-text">
+                            <h3>저조한 하단 영역의 클릭률</h3>
+                            <p>스크롤 하여 아래에 있는 콘텐츠까지<br>탐색하는 유저가 적어요</p>
+                            <p class="problem-note">* rcn : 최상단 뉴스 영역 대비 아래의 영역 (쇼핑, 웹툰, TV) 클릭 비율</p>
+                        </div>
+                    </div>
+                    <div class="problem-item">
+                        <div class="problem-number">2</div>
+                        <div class="problem-text">
+                            <h3>뉴스의 아웃링크 전환</h3>
+                            <p>뉴스가 아웃링크로 전환됨에 따라, 콘텐츠로서의 매력도가<br>낮아질 전망입니다. 뉴스의 의존도를 낮추고 다른 매력적인<br>콘텐츠들을 강조해야 합니다.</p>
+                        </div>
+                    </div>
+                    <div class="problem-item">
+                        <div class="problem-number">3</div>
+                        <div class="problem-text">
+                            <h3>개인화된 콘텐츠 제안에<br>적합하지 않은 ui 구조</h3>
+                            <p>추후 ai를 활용한 개인화를 제공할 예정이 있지만,<br>걸맞지 않은 UI 구조를 가지고있어요</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="problem-visual">
+                    <div class="laptop-placeholder">
+                        <img src="Group 1487.png" alt="Front Widget Design" class="laptop-img">
+                    </div>
+                </div>
+            </div>
+
+            <div class="goal-card">
+                <div class="goal-header">GOAL</div>
+                <div class="goal-body">
+                    <div class="goal-column">
+                        <div class="goal-badge pending">진행예정</div>
+                        <h3>장기 목표</h3>
+                        <h4>프론트 전면 개편</h4>
+                        <ul>
+                            <li>사용자 맞춤형 콘텐츠를 제공하는 포털 사이트</li>
+                            <li>회원가입 유저 수 10만 포털 사이트</li>
+                        </ul>
+                    </div>
+                    <div class="goal-divider"></div>
+                    <div class="goal-column">
+                        <div class="goal-badge active">진행중</div>
+                        <h3>단기 목표</h3>
+                        <h4>프론트 위젯을 활용한 TEST</h4>
+                        <ul>
+                            <li>레이아웃 및 위치에 따른 콘텐츠 클릭률 및 반응도 테스트</li>
+                            <li>리워드 시스템, 웹툰 등의 콘텐츠를 통한 회원가입 유도 및 유저 표본 창출</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="planning-process" id="planning">
+            <div class="section-header">
+                <div class="badge">PLANNING</div>
+                <h2>초기 기획 수행 과정</h2>
+            </div>
+
+            <div class="process-step">
+                <div class="step-title">
+                    <span class="step-number">1</span>
+                    <h3>위젯 영역 설정</h3>
+                </div>
+
+                <div class="step-content-box">
+                    <img src="widget section.png" alt="Wireframe Image" class="wireframe-img">
+
+                    <div class="process-legend">
+                        <div class="legend-item">
+                            <div class="legend-dot blue">
+                                <div class="dot-inner"></div>
+                            </div>
+                            <div class="legend-text">
+                                <h4>콘텐츠 영역</h4>
+                                <p>ZUM에 접속했을때, 주시영역 안에<br>위젯이 다 보일 수 있게 사이즈 및 레이아웃을<br>구성해야해요</p>
+                            </div>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-dot red">
+                                <div class="dot-inner"></div>
+                            </div>
+                            <div class="legend-text">
+                                <h4>광고 영역</h4>
+                                <p>광고주와의 계약에 따라, 광고 영역 및 크기를<br>유지해야해요</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="process-step">
+                <div class="step-title">
+                    <span class="step-number">2</span>
+                    <h3>위젯 레이아웃 설정</h3>
+                </div>
+
+                <div class="step-content-box layout-box">
+                    <!-- Left Sidebar List -->
+                    <div class="layout-sidebar-list">
+                        <div class="layout-list-item active">
+                            <div class="item-header">
+                                <span class="badge-pill">모듈형</span>
+                            </div>
+                            <div class="item-thumbnail">
+                                <img src="1.png" alt="Modular Type Thumbnail" class="thumbnail-img">
+                            </div>
+                        </div>
+                        <div class="layout-list-item">
+                            <div class="item-header">
+                                <span class="text-label">로그인 유도형</span>
+                            </div>
+                            <div class="item-thumbnail">
+                                <img src="2.PNG" alt="Login Induction Type Thumbnail" class="thumbnail-img">
+                            </div>
+                        </div>
+                        <div class="layout-list-item">
+                            <div class="item-header">
+                                <span class="text-label">콘텐츠 강조형</span>
+                            </div>
+                            <div class="item-thumbnail">
+                                <img src="3.PNG" alt="Content Emphasis Type Thumbnail" class="thumbnail-img">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Detail Content -->
+                    <div class="layout-detail-view">
+                        <div class="detail-header">
+                            <div class="title-group">
+                                <h3>모듈형 레이아웃</h3>
+                                <span class="dims">1096×670</span>
+                            </div>
+                            <div class="description-text">
+                                <p>다양한 디자인 시안을 미리 작업해두고, 클릭률 통계를 보며 진행 방향을 설정하기 위해<br>고정된 영역 내에서 여러가지 디자인을 미리 작업 해 둘 수
+                                    있는 모듈형 레이아웃을 선정했습니다.</p>
+                            </div>
+                        </div>
+
+                        <!-- Widget Preview Card (Figma Node 228:8790) -->
+                        <div class="widget-preview-card">
+                            <!-- Left Column -->
+                            <div class="preview-col-left">
+                                <!-- Top AD Banner (750x135) -->
+                                <div class="preview-box ad-banner-large">
+                                    <div class="inner-gray-box large"></div>
+                                    <div class="ad-badge-group">
+                                        <div class="ad-badge"><span class="ad-text">AD</span></div>
+                                        <span class="ad-size">750x135</span>
+                                    </div>
+                                </div>
+
+                                <!-- Middle Row (1 & 2) -->
+                                <div class="preview-row">
+                                    <div class="preview-box item-box-1">
+                                        <div class="rank-number">1</div>
+                                        <span class="ad-size">257x496</span>
+                                    </div>
+                                    <div class="preview-box item-box-2">
+                                        <div class="rank-number">2</div>
+                                        <span class="ad-size">257x243</span>
+                                    </div>
+                                </div>
+
+                                <!-- Bottom Row (3 & 4) -->
+                                <div class="preview-row">
+                                    <div class="preview-box item-box-3">
+                                        <div class="rank-number">3</div>
+                                        <span class="ad-size">257x243</span>
+                                    </div>
+                                    <div class="preview-box item-box-4">
+                                        <div class="rank-number">4</div>
+                                        <span class="ad-size">257x496</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Right Column -->
+                            <div class="preview-col-right">
+                                <!-- AI Issue Trend -->
+                                <div class="preview-box ai-trend-card">
+                                    <div class="trend-header">
+                                        <div class="header-decoration">
+                                            <div class="dot-1"></div>
+                                            <div class="dot-bar"></div>
+                                            <div class="icon-box"></div>
+                                        </div>
+                                        <div class="trend-button"></div>
+                                    </div>
+
+                                    <!-- Trend List -->
+                                    <div class="trend-list">
+                                        <!-- Rank 1 -->
+                                        <div class="trend-item">
+                                            <div class="rank-badge">1</div>
+                                            <div class="trend-bar full"></div>
+                                            <div class="trend-stats">
+                                                <span class="trend-arrow up">▲</span>
+                                                <span class="stat-num">9</span>
+                                            </div>
+                                        </div>
+                                        <!-- Rank 2 -->
+                                        <div class="trend-item">
+                                            <div class="rank-badge">2</div>
+                                            <div class="trend-bar medium"></div>
+                                            <div class="trend-stats">
+                                                <span class="trend-arrow down">▼</span>
+                                                <span class="stat-num">1</span>
+                                            </div>
+                                        </div>
+                                        <!-- Rank 3 -->
+                                        <div class="trend-item">
+                                            <div class="rank-badge">3</div>
+                                            <div class="trend-bar medium"></div>
+                                            <!-- No stat for 3 per design -->
+                                        </div>
+                                        <!-- Rank 4 -->
+                                        <div class="trend-item">
+                                            <div class="rank-badge">4</div>
+                                            <div class="trend-bar long"></div>
+                                            <div class="trend-stats">
+                                                <span class="trend-arrow up">▲</span>
+                                                <span class="stat-num">9</span>
+                                            </div>
+                                        </div>
+                                        <!-- Rank 5 -->
+                                        <div class="trend-item">
+                                            <div class="rank-badge">5</div>
+                                            <div class="trend-bar long"></div>
+                                            <div class="trend-stats">
+                                                <span class="trend-arrow up">▲</span>
+                                                <span class="stat-num">9</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Pagination Dots -->
+                                    <div class="trend-pagination">
+                                        <div class="dot active"></div>
+                                        <div class="dot"></div>
+                                    </div>
+                                </div>
+
+                                <!-- Shopping Box -->
+                                <div class="preview-box shopping-card">
+                                    <div class="shopping-group">
+                                        <!-- Decoration Rectangle (Top Left) -->
+                                        <div class="shopping-deco-rect"></div>
+
+
+
+                                        <!-- AD Badges Group -->
+                                        <div class="shopping-ad-group">
+                                            <div class="shopping-ad-item pos-1">
+                                                <div class="ad-pill">AD</div>
+                                            </div>
+                                            <div class="shopping-ad-item pos-2">
+                                                <div class="ad-pill">AD</div>
+                                            </div>
+                                            <div class="shopping-ad-item pos-3">
+                                                <div class="ad-pill">AD</div>
+                                            </div>
+                                            <div class="shopping-ad-item pos-4">
+                                                <div class="ad-pill">AD</div>
+                                            </div>
+                                            <div class="shopping-ad-item pos-5">
+                                                <div class="ad-pill">AD</div>
+                                            </div>
+                                            <div class="shopping-ad-item pos-6">
+                                                <div class="ad-pill">AD</div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Decoration Lines -->
+                                        <div class="shopping-lines">
+                                            <div class="line-horz"></div>
+                                            <div class="line-vert v1"></div>
+                                            <div class="line-vert v2"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Bottom Banner -->
+                                <div class="preview-box banner-small">
+                                    <div class="inner-gray-box small"></div>
+                                    <div class="ad-badge-group">
+                                        <div class="ad-badge"><span class="ad-text">AD</span></div>
+                                        <span class="ad-size">336x280</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="process-step">
+                <div class="step-title">
+                    <span class="step-number">3</span>
+                    <h3>위젯 콘텐츠 설정</h3>
+                </div>
+
+                <div class="step-content-box content-box">
+                    <div class="content-selection-grid">
+                        <!-- Card 1: News -->
+                        <div class="content-card selected">
+                            <img src="NEWS ICON.png" alt="News Icon" class="card-icon-img">
+                            <div class="card-info">
+                                <h4>뉴스</h4>
+                                <p>ZUM을 이용하는 방문자의 36.5%가 뉴스를 열람하기 위해 ZUM을 방문해요</p>
+                            </div>
+                        </div>
+
+                        <!-- Card 2: Shopping -->
+                        <div class="content-card selected">
+                            <img src="SHOPPING ICON.png" alt="Shopping Icon" class="card-icon-img">
+                            <div class="card-info">
+                                <h4>쇼핑 및 쇼핑몰 즐겨찾기</h4>
+                                <p>사실상 ZUM의 수익 90%를 차지하는 콘텐츠예요</p>
+                            </div>
+                        </div>
+
+                        <!-- Card 3: Webtoon -->
+                        <div class="content-card">
+                            <img src="WEBTOON ICON.png" alt="Webtoon Icon" class="card-icon-img">
+                            <div class="card-info">
+                                <h4>웹툰</h4>
+                                <p>ZUM의 신규 유저 및 리텐션을 늘리기 위해 선정했어요</p>
+                            </div>
+                        </div>
+
+                        <!-- Card 4: Reward -->
+                        <div class="content-card">
+                            <img src="REWARD ICON.png" alt="Reward Icon" class="card-icon-img">
+                            <div class="card-info">
+                                <h4>리워드</h4>
+                                <p>ZUM의 신규 유저 및 리텐션을 늘리기 위해 선정했어요</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="content-drafts" id="contents">
+            <div class="section-header">
+                <div class="badge">CONTENTS</div>
+                <h2>각 콘텐츠 별 시안</h2>
+            </div>
+
+            <div class="draft-category">
+                <div class="category-header">
+                    <div class="category-number">1</div>
+                    <h3>뉴스</h3>
+                </div>
+                <div class="draft-grid">
+                    <!-- Draft 1: Major News Type (Selected) -->
+                    <div class="draft-card selected">
+                        <div class="draft-preview">
+                            <img src="MAIN NEWS.PNG" alt="Major News Type Draft">
+                        </div>
+                        <div class="draft-info">
+                            <h4 class="title-with-icon">
+                                <img src="main news icon.png" alt="Main News Icon" class="title-icon">
+                                주요뉴스형
+                            </h4>
+                            <p>꼭 읽어야 할 뉴스만 적은 개수로 엄선해서 노출할 때 클릭률이 가장 높을까?</p>
+                        </div>
+
+                        <!-- Overlay/Contextual Elements outside the lump but inside the draft card -->
+                        <div class="check-circle">
+                            <svg class="check-svg" viewBox="0 0 24 24">
+                                <path class="check-path" d="M4 12 L9 17 L20 6" />
+                            </svg>
+                        </div>
+                        <div class="speech-bubble">
+                            페이지네이션을 줄이고 불필요한<br>
+                            비 유효 클릭수를 줄이기 위해 채택되었습니다
+                        </div>
+                    </div>
+
+                    <!-- Draft 2: List Type -->
+                    <div class="draft-card">
+                        <div class="draft-preview">
+                            <img src="NEWS 2.PNG" alt="List Type News Draft">
+                        </div>
+                        <div class="draft-info">
+                            <h4 class="title-with-icon">
+                                <img src="news recommend icon.png" alt="News Recommend Icon" class="title-icon">
+                                인기 분야 별 추천형
+                            </h4>
+                            <p>기존 뉴스박스와는 다르게 인기 분야 (종합,연예)만 활용할 때 클릭률이 가장 높을까?</p>
+                        </div>
+                    </div>
+
+                    <!-- Draft 3: Gallery Type -->
+                    <div class="draft-card">
+                        <div class="draft-preview">
+                            <img src="NEWS 3.PNG" alt="Gallery Type News Draft">
+                        </div>
+                        <div class="draft-info">
+                            <h4 class="title-with-icon">
+                                <img src="ai news icon.png" alt="AI News Icon" class="title-icon">
+                                AI형
+                            </h4>
+                            <p>AI를 활용해 가장 화제가 되는 키워드를 선정하고, 관련 기사를 노출하면 클릭률이 가장 높을까?</p>
+                        </div>
+                    </div>
+
+                    <!-- Draft 4: Mixed Type -->
+                    <div class="draft-card">
+                        <div class="draft-preview">
+                            <img src="NEWS 4.PNG" alt="Mixed Type News Draft">
+                        </div>
+                        <div class="draft-info">
+                            <h4 class="title-with-icon">
+                                <img src="thumbnail icon.png" alt="Thumbnail Icon" class="title-icon">
+                                썸네일형
+                            </h4>
+                            <p>썸네일이 있는 기사가 없는 기사에 비해 클릭률이 높다는 테스트 결과가 있다면, 썸네일만 강조했을 때 클릭률은 어떻게 될까?</p>
+                            <p class="source-note">Kim et al., 2019 Thumbnails for Data Stories: A Survey of Current
+                                Practices</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Webtoon Section -->
+            <div class="draft-category">
+                <div class="category-header">
+                    <div class="category-number">2</div>
+                    <h3>웹툰</h3>
+                </div>
+                <div class="webtoon-grid">
+                    <!-- Webtoon Card 1 -->
+                    <div class="webtoon-card selected">
+                        <div class="webtoon-info">
+                            <h4 class="title-with-icon">
+                                <img src="thumbnail icon.png" alt="Thumbnail Icon" class="title-icon">
+                                썸네일 강조형
+                            </h4>
+                            <p>한정된 영역 내에서 썸네일을 강조했을때<br>클릭률이 가장 높을까?</p>
+                        </div>
+                        <div class="webtoon-image-group">
+                            <div class="webtoon-preview">
+                                <img src="WEBTOON 1.png" alt="Webtoon Draft 1">
+                            </div>
+                            <div class="webtoon-preview">
+                                <img src="WEBTOON 2.png" alt="Webtoon Draft 2">
+                            </div>
+                        </div>
+                        <div class="check-circle">
+                            <svg class="check-svg" viewBox="0 0 24 24">
+                                <path class="check-path" d="M4 12 L9 17 L20 6" />
+                            </svg>
+                        </div>
+                        <div class="speech-bubble">
+                            타사 벤치마킹 후 웹툰 서비스의 UI 구조 중 가장 사용자들에게 익숙한 구조로 채택되었습니다
+                        </div>
+                    </div>
+
+                    <!-- Webtoon Card 2 -->
+                    <div class="webtoon-card">
+                        <div class="webtoon-info">
+                            <h4 class="title-with-icon">
+                                <img src="main news icon.png" alt="Main News Icon" class="title-icon">
+                                랭킹형
+                            </h4>
+                            <p>한정된 영역 내에서 정보량을 많이 제시했을때<br>클릭률이 가장 높을까?</p>
+                        </div>
+                        <div class="webtoon-image-group">
+                            <div class="webtoon-preview">
+                                <img src="ranking webtoon.png" alt="Ranking Webtoon Draft 1">
+                            </div>
+                            <div class="webtoon-preview">
+                                <img src="ranking webtoon 2.png" alt="Ranking Webtoon Draft 2">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Webtoon Card 3 -->
+                    <div class="webtoon-card">
+                        <div class="webtoon-info">
+                            <h4 class="title-with-icon">
+                                <img src="19 png.png" alt="19+ Icon" class="title-icon">
+                                수위형
+                            </h4>
+                            <p>수위 높은 작품을 강조했을때 클릭률은<br>어떻게 될까?</p>
+                        </div>
+                        <div class="webtoon-image-group">
+                            <div class="webtoon-preview">
+                                <img src="19 webtoon 1.png" alt="19+ Webtoon Draft 1">
+                            </div>
+                            <div class="webtoon-preview">
+                                <img src="19 webtoon 2.png" alt="19+ Webtoon Draft 2">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reward Section -->
+            <div class="draft-category">
+                <div class="category-header">
+                    <div class="category-number">3</div>
+                    <h3>리워드</h3>
+                </div>
+                <div class="webtoon-grid">
+                    <!-- Reward Card 1 -->
+                    <div class="webtoon-card selected">
+                        <div class="webtoon-info">
+                            <h4 class="title-with-icon">
+                                <img src="list icon.png" alt="List Icon" class="title-icon">
+                                리스트형
+                            </h4>
+                            <p>어떤 미션을 깨면 얼마를 주는지 한 눈에 볼 수 있게 구성하면<br>클릭률이 높아지지 않을까?</p>
+                        </div>
+                        <div class="webtoon-image-group">
+                            <div class="webtoon-preview">
+                                <img src="reward 1.png" alt="Reward Draft 1">
+                            </div>
+                            <div class="webtoon-preview">
+                                <img src="reward 2.png" alt="Reward Draft 2">
+                            </div>
+                        </div>
+                        <div class="check-circle">
+                            <svg class="check-svg" viewBox="0 0 24 24">
+                                <path class="check-path" d="M4 12 L9 17 L20 6" />
+                            </svg>
+                        </div>
+                        <div class="speech-bubble">
+                            기존 리워드 시스템과 동일한 방식으로 작동하는 UI로, 개발의 용이성을 위해 채택되었습니다
+                        </div>
+                    </div>
+
+                    <!-- Reward Card 2 -->
+                    <div class="webtoon-card">
+                        <div class="webtoon-info">
+                            <h4 class="title-with-icon">
+                                <img src="check icon.png" alt="Check Icon" class="title-icon">
+                                성취 부여형
+                            </h4>
+                            <p>미션을 한 단계씩 제시하여 사용자들에게<br>성취감을 느낄 수 있게 구성하면 흥미를 느끼지 않을까?</p>
+                        </div>
+                        <div class="webtoon-image-group">
+                            <div class="webtoon-preview">
+                                <img src="reward 3.png" alt="Reward Draft 3">
+                            </div>
+                            <div class="webtoon-preview">
+                                <img src="reward 4.png" alt="Reward Draft 4">
+                            </div>
+                            <div class="webtoon-preview video-container">
+                                <img src="reward 5.png" alt="Reward Draft 5">
+                                <video src="motion reward.mp4" class="reward-video" autoplay loop muted
+                                    playsinline></video>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Shopping Section -->
+            <div class="draft-category">
+                <div class="category-header">
+                    <div class="category-number">4</div>
+                    <h3>쇼핑</h3>
+                </div>
+                <div class="webtoon-grid">
+                    <!-- Shopping Card 1 -->
+                    <div class="webtoon-card selected">
+                        <div class="webtoon-info">
+                            <h4 class="title-with-icon">
+                                <img src="2 layout.png" alt="2 Layout Icon" class="title-icon">
+                                2×2형
+                            </h4>
+                            <p>사용자들은 썸네일이 크게 보이는 쇼핑 UI에 더 끌릴까?</p>
+                        </div>
+                        <div class="webtoon-image-group">
+                            <div class="webtoon-preview">
+                                <img src="shopping 1.png" alt="2x2 Shopping Layout">
+                            </div>
+                        </div>
+                        <div class="check-circle">
+                            <svg class="check-svg" viewBox="0 0 24 24">
+                                <path class="check-path" d="M4 12 L9 17 L20 6" />
+                            </svg>
+                        </div>
+                        <div class="speech-bubble">
+                            플랫폼 수익과 팀과 논의 한 결과, 많은 상품이 있는 쇼핑 광고<br>
+                            구좌보다는 썸네일이 큰 구좌의 상품을 더 자주 클릭한다는 자문이<br>
+                            있어 채택되었습니다
+                        </div>
+                    </div>
+
+                    <!-- Shopping Card 2 -->
+                    <div class="webtoon-card">
+                        <div class="webtoon-info">
+                            <h4 class="title-with-icon">
+                                <img src="3 layout.png" alt="3 Layout Icon" class="title-icon">
+                                3×3형 (API)
+                            </h4>
+                            <p>사용자들은 많은 상품을 보여주는 UI에 더 끌릴까?</p>
+                        </div>
+                        <div class="webtoon-image-group">
+                            <div class="webtoon-preview">
+                                <img src="shopping 2.png" alt="3x3 Shopping Layout">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Insights Section (Moved outside container for naturally full-width background) -->
+    <section class="insights" id="insights">
+        <div class="insights-inner">
+            <div class="section-header centered">
+                <div class="badge">INSIGHTS</div>
+                <h2>인사이트</h2>
+            </div>
+
+            <div class="insight-navigation">
+                <button id="insight-prev" class="nav-btn prev" disabled aria-label="Previous slide">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
+                </button>
+                <button id="insight-next" class="nav-btn next" aria-label="Next slide">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="insight-slider-container">
+                <div class="insight-slider-track" id="insight-track">
+                    <!-- Insight 1 -->
+                    <div class="insight-item">
+                        <div class="insight-title-group">
+                            <div class="category-number">1</div>
+                            <h3>뉴스</h3>
+                        </div>
+                        <div class="insight-description-group">
+                            <p>뉴스의 전체 클릭 수는 확연하게 감소하였지만 유효 클릭수는 비교적 작은 폭으로 감소하여, 실질적인 감소폭은 낮다고 판단했습니다.</p>
+                            <p>다만 뉴스 GNB의 클릭률이 유의미하게 높아졌고, <span class="blue-highlight">사용자들이 위젯의 뉴스 UI에 유독 낯설음을
+                                    느낀다</span>고 분석했습니다.</p>
+                        </div>
+
+                        <div class="insight-visual-container">
+                            <div class="insight-image-box no-shadow">
+                                <img src="news insight.png" alt="News Insight" class="insight-img">
+                            </div>
+                        </div>
+
+                        <div class="insight-metrics">
+                            <div class="metric-card">
+                                <div class="card-header">
+                                    <h3>뉴스 전체 클릭수</h3>
+                                    <div class="trend negative"
+                                        style="background-color: #E6F0FF; color: var(--primary-blue);">
+                                        <span class="arrow">▼</span> <span class="count-up" data-target="19">0</span>%
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="comparison-row">
+                                        <span class="compare-label">비교 기간</span>
+                                        <span class="compare-range">10.18-11.18 / 11.18-12.18</span>
+                                    </div>
+                                    <div class="data-row">
+                                        <span class="data-label">일 평균</span>
+                                        <span class="data-value">155,644 <span class="arrow-mini">▶</span>
+                                            124,860</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="metric-card">
+                                <div class="card-header">
+                                    <h3>뉴스 전체 유효클릭 수</h3>
+                                    <div class="trend negative"
+                                        style="background-color: #E6F0FF; color: var(--primary-blue);">
+                                        <span class="arrow">▼</span> <span class="count-up" data-target="4.9">0</span>%
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="comparison-row">
+                                        <span class="compare-label">비교 기간</span>
+                                        <span class="compare-range">10.18-11.18 / 11.18-12.18</span>
+                                    </div>
+                                    <div class="data-row">
+                                        <span class="data-label">일 평균</span>
+                                        <span class="data-value">93,698 <span class="arrow-mini">▶</span>
+                                            89,095</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="metric-card">
+                                <div class="card-header">
+                                    <h3>뉴스 GNB 클릭 수</h3>
+                                    <div class="trend positive">
+                                        <span class="arrow">▲</span> <span class="count-up" data-target="26">0</span>%
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="comparison-row">
+                                        <span class="compare-label">비교 기간</span>
+                                        <span class="compare-range">10.18-11.18 / 11.18-12.18</span>
+                                    </div>
+                                    <div class="data-row">
+                                        <span class="data-label">일 평균</span>
+                                        <span class="data-value">6,363 <span class="arrow-mini">▶</span>
+                                            8,014</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Insight 1-2 -->
+                    <div class="insight-item">
+                        <div class="insight-title-group">
+                            <div class="category-number pill">1-2</div>
+                            <h3>뉴스 (기존 뉴스 박스 UI)</h3>
+                        </div>
+                        <div class="insight-description-group">
+                            <p>원래 사용자들은 뉴스 GNB가 아니라 페이지네이션을 한 후 원하는 카테고리 탭이 활성화 될 때 클릭하여 뉴스 페이지로 진입하는 경향이 있었습니다.</p>
+                            <p>이러한 <span class="blue-highlight">경험을 고려하지 않은 채 위젯 UI를 디자인하여 사용자들의 혼란을 유발했고, 따라서 뉴스
+                                    GNB 유입이
+                                    늘어났다</span>고 분석했습니다.</p>
+                        </div>
+
+                        <div class="insight-visual-container">
+                            <img src="news tab.png" alt="News Tab Insight" class="insight-img-wide">
+                        </div>
+
+                        <div class="insight-metrics">
+                            <div class="metric-card">
+                                <div class="card-header">
+                                    <div class="header-title-group">
+                                        <h3>평균 클릭수</h3>
+                                    </div>
+                                    <div class="value-box">56,068 회</div>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="comparison-row">
+                                        <span class="compare-label">기간</span>
+                                        <span class="compare-range">10.18-11.18</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="metric-card">
+                                <div class="card-header">
+                                    <div class="header-title-group">
+                                        <div class="badge-mini gray">카테고리</div>
+                                        <h3>탭 평균 클릭 수</h3>
+                                    </div>
+                                    <div class="value-box">5,878 회</div>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="comparison-row">
+                                        <span class="compare-label">기간</span>
+                                        <span class="compare-range">10.18-11.18</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="metric-card">
+                                <div class="card-header">
+                                    <div class="header-title-group">
+                                        <div class="badge-mini blue">카테고리</div>
+                                        <h3>탭 평균 클릭 수</h3>
+                                    </div>
+                                    <div class="value-box">21,905 회</div>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="comparison-row">
+                                        <span class="compare-label">기간</span>
+                                        <span class="compare-range">10.18-11.18</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Insight 1-3 (News Insight) -->
+                    <div class="insight-item special-bg">
+                        <div class="sparkle-container">
+                            <div class="sparkle s1"></div>
+                            <div class="sparkle s2"></div>
+                            <div class="sparkle s3"></div>
+                            <div class="sparkle s4"></div>
+                            <div class="sparkle s5"></div>
+                            <div class="sparkle s6"></div>
+                        </div>
+                        <div class="insight-title-group">
+                            <div class="category-number pill">1-3</div>
+                            <h3>뉴스 인사이트</h3>
+                        </div>
+                        <div class="insight-description-group">
+                            <p>페이지네이션을 추가하여 기존 유저들이 가지고 있던 경험을 해치지 않는 디자인으로 개선하려고 합니다</p>
+                        </div>
+
+                        <div class="insight-visual-container up-100">
+                            <div class="insight-image-box no-shadow">
+                                <img src="new news.png" alt="News 1-3 Insight" class="insight-img">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Insight 2 (Webtoon) -->
+                    <div class="insight-item">
+                        <div class="insight-title-group">
+                            <div class="category-number">2</div>
+                            <h3>웹툰</h3>
+                        </div>
+                        <div class="insight-description-group">
+                            <p>웹툰의 전체 클릭 수 평균이 위젯을 도입 한 후 큰 폭으로 증가했습니다.</p>
+                            <p>다만, 웹툰의 클릭률은 <span class="blue-highlight">위치보다는 콘텐츠의 자극도</span>에 가장 큰 영향을 받는다고
+                                판단했습니다.</p>
+                        </div>
+
+                        <div class="insight-visual-container">
+                            <div class="insight-img-custom">
+                                <img src="webtoon insight 1.png" alt="Webtoon Insight">
+                            </div>
+                        </div>
+
+                        <div class="insight-metrics">
+                            <div class="metric-card">
+                                <div class="card-header">
+                                    <h3>웹툰 전체 클릭수</h3>
+                                    <div class="trend positive">
+                                        <span class="arrow">▲</span> <span class="count-up" data-target="178">0</span>%
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="comparison-row">
+                                        <span class="compare-label">비교 기간</span>
+                                        <span class="compare-range">10.18-11.18 / 11.18-12.18</span>
+                                    </div>
+                                    <div class="data-row">
+                                        <span class="data-label">일 평균</span>
+                                        <span class="data-value">205 <span class="arrow-mini">▶</span> 571</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="metric-card wide">
+                                <div class="card-header">
+                                    <h3>최다 클릭 수</h3>
+                                    <div class="value-box">2107회</div>
+                                </div>
+                                <div class="best-click-content">
+                                    <div class="best-thumb">
+                                        <img src="Mask group.png" alt="Best Webtoon" class="best-thumb-img">
+                                    </div>
+                                    <div class="best-info">
+                                        <div class="best-row">
+                                            <span class="best-label">제목</span>
+                                            <span class="best-value">베드 파트너 (19)</span>
+                                        </div>
+                                        <div class="best-row">
+                                            <span class="best-label">클릭수</span>
+                                            <span class="best-value">평균 571 <span class="arrow-mini">▶</span>
+                                                2107</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Insight 2-2 (Webtoon Insight) -->
+                    <div class="insight-item special-bg">
+                        <div class="sparkle-container">
+                            <div class="sparkle s1"></div>
+                            <div class="sparkle s2"></div>
+                            <div class="sparkle s3"></div>
+                            <div class="sparkle s4"></div>
+                            <div class="sparkle s5"></div>
+                            <div class="sparkle s6"></div>
+                        </div>
+                        <div class="insight-title-group">
+                            <div class="category-number pill">2-2</div>
+                            <h3>웹툰 인사이트</h3>
+                        </div>
+                        <div class="insight-description-group">
+                            <p>자극적인 콘텐츠가 있음을 사용자들에게 인지시킬 수 있는 방향으로 개선하고자 합니다.</p>
+                        </div>
+
+                        <div class="insight-visual-container up-100">
+                            <div class="insight-image-box-vertical">
+                                <img src="19.png" alt="Webtoon 2-2 Insight" class="insight-img">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Insight 3 (Shopping) -->
+                    <div class="insight-item">
+                        <div class="insight-title-group">
+                            <div class="category-number">3</div>
+                            <h3>쇼핑</h3>
+                        </div>
+                        <div class="insight-description-group">
+                            <p>위젯을 도입 한 후 쇼핑 전체 클릭수는 소폭 증가했으나, 유효 클릭수는 상당히 늘어났습니다.</p>
+                            <p>다만, <span class="blue-highlight">위젯 쇼핑 영역의 클릭수 자체는 프론트 화면 가장 상단이라는 위치에 비해
+                                    저조</span>했습니다.</p>
+                        </div>
+
+                        <div class="insight-visual-container">
+                            <div class="insight-image-box-fit-small">
+                                <img src="shopping insight 1.png" alt="Shopping Insight" class="insight-img">
+                            </div>
+                        </div>
+
+                        <div class="insight-metrics">
+                            <div class="metric-card">
+                                <div class="card-header">
+                                    <h3>쇼핑 전체 클릭수</h3>
+                                    <div class="trend positive">
+                                        <span class="arrow">▲</span> <span class="count-up" data-target="12">0</span>%
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="comparison-row">
+                                        <span class="compare-label">비교 기간</span>
+                                        <span class="compare-range">10.18-11.18 / 11.18-12.18</span>
+                                    </div>
+                                    <div class="data-row">
+                                        <span class="data-label">일 평균</span>
+                                        <span class="data-value">2231 <span class="arrow-mini">▶</span> 2502</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="metric-card">
+                                <div class="card-header">
+                                    <h3>쇼핑 전체 유효 클릭수</h3>
+                                    <div class="trend positive">
+                                        <span class="arrow">▲</span> <span class="count-up" data-target="69">0</span>%
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="comparison-row">
+                                        <span class="compare-label">비교 기간</span>
+                                        <span class="compare-range">10.18-11.18 / 11.18-12.18</span>
+                                    </div>
+                                    <div class="data-row">
+                                        <span class="data-label">일 평균</span>
+                                        <span class="data-value">843 <span class="arrow-mini">▶</span> 1427</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="metric-card">
+                                <div class="card-header">
+                                    <h3>쇼핑 위젯 클릭수 (일 평균)</h3>
+                                    <div class="value-box">933 회</div>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="comparison-row">
+                                        <span class="compare-label">기간</span>
+                                        <span class="compare-range">11.18-12.18</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Insight 3-2 (Shopping Existing) -->
+                    <div class="insight-item">
+                        <div class="insight-title-group">
+                            <div class="category-number pill">3-2</div>
+                            <h3>쇼핑 (API 적용 후)</h3>
+                        </div>
+                        <div class="insight-description-group">
+                            <p>더 많은 상품을 노출 할 수 있도록 레이아웃을 변경했으나, 클릭률이 감소했습니다. 썸네일이 축소되어서라고 추측했지만, 할인가가 생략되었기 때문일수도 있으니 추후
+                                테스트가 필요하다고 판단했습니다.</p>
+                        </div>
+
+                        <div class="insight-visual-container">
+                            <div class="insight-image-box-fit-small">
+                                <img src="shopping insight 3-2.png" alt="Shopping Insight" class="insight-img">
+                            </div>
+                        </div>
+
+                        <div class="insight-metrics">
+                            <div class="metric-card full">
+                                <div class="card-header">
+                                    <h3>클릭수</h3>
+                                    <div class="trend negative"
+                                        style="background-color: #E6F0FF; color: var(--primary-blue);">
+                                        <span class="arrow">▼</span> <span class="count-up" data-target="25">0</span>%
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="comparison-row">
+                                        <span class="compare-label">비교 기간</span>
+                                        <span class="compare-range">11.18-12.12 / 12.12-01.05 [24일씩 비교]</span>
+                                    </div>
+                                    <div class="data-row">
+                                        <span class="data-label">일 평균</span>
+                                        <span class="data-value">958 <span class="arrow-mini">▶</span>
+                                            715</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Insight 3-3 (Shopping Insight) -->
+                    <div class="insight-item special-bg">
+                        <div class="sparkle-container">
+                            <div class="sparkle s1"></div>
+                            <div class="sparkle s2"></div>
+                            <div class="sparkle s3"></div>
+                            <div class="sparkle s4"></div>
+                            <div class="sparkle s5"></div>
+                            <div class="sparkle s6"></div>
+                        </div>
+                        <div class="insight-title-group">
+                            <div class="category-number pill">3-3</div>
+                            <h3>쇼핑 인사이트</h3>
+                        </div>
+                        <div class="insight-description-group">
+                            <p>내부 사정 상 CMS 등록이 아닌 쿠팡 API를 활용해 상품을 노출시키기로 했고,</p>
+                            <p>그에 따라 <span class="blue-highlight">썸네일 비율은 롤백하지 못했지만 혜택과 관련된 뱃지를 추가</span>하려 합니다.</p>
+                        </div>
+
+                        <div class="insight-visual-container up-100">
+                            <div class="insight-image-box-shopping">
+                                <img src="shopping insight 2.png" alt="Shopping 3-2 Insight" class="insight-img">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Insight 4 (Reward) -->
+                    <div class="insight-item">
+                        <div class="insight-title-group">
+                            <div class="category-number">4</div>
+                            <h3>리워드</h3>
+                        </div>
+                        <div class="insight-description-group">
+                            <p>리워드 위젯의 클릭 수 자체도 저조하지만, 사용자들에게 리워드를 상기시키는 홍보 효과도 부족한 것으로 분석됩니다.</p>
+                            <p>내부 논의 결과, <span class="blue-highlight">리워드 위젯은 추후 다른 콘텐츠로 교체</span>하는 것이 낫다고 판단했습니다.
+                            </p>
+                        </div>
+
+                        <div class="insight-visual-container">
+                            <div class="insight-image-box-vertical">
+                                <img src="reward insight.png" alt="Reward Insight" class="insight-img">
+                            </div>
+                        </div>
+
+                        <div class="insight-metrics">
+                            <div class="metric-card">
+                                <div class="card-header">
+                                    <h3>리워드 전체 참여 수</h3>
+                                    <div class="trend positive">
+                                        <span class="arrow">▲</span> <span class="count-up" data-target="3.18">0</span>%
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="comparison-row">
+                                        <span class="compare-label">비교 기간</span>
+                                        <span class="compare-range">10.17-11.17 / 11.18-12.18</span>
+                                    </div>
+                                    <div class="data-row">
+                                        <span class="data-label">일 평균</span>
+                                        <span class="data-value">10247 <span class="arrow-mini">▶</span>
+                                            10573</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="metric-card wide">
+                                <div class="card-header">
+                                    <h3>리워드 위젯 클릭수 (일 평균)</h3>
+                                    <div class="value-box">140 회</div>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="comparison-row">
+                                        <span class="compare-label">기간</span>
+                                        <span class="compare-range">11.18-12.18</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Insight 4-2 (Reward Insight) -->
+                    <div class="insight-item special-bg">
+                        <div class="sparkle-container">
+                            <div class="sparkle s1"></div>
+                            <div class="sparkle s2"></div>
+                            <div class="sparkle s3"></div>
+                            <div class="sparkle s4"></div>
+                            <div class="sparkle s5"></div>
+                            <div class="sparkle s6"></div>
+                        </div>
+                        <div class="insight-title-group">
+                            <div class="category-number pill">4-2</div>
+                            <h3>리워드 인사이트</h3>
+                        </div>
+                        <div class="insight-description-group">
+                            <p>이전에도 여러가지 방식으로 리워드 참여를 유도하는 UT를 진행한 히스토리가 있었고, 내부 논의 결과, ZUM web의 사용자들은 리워드에 관심이 없다는 결론을
+                                내렸습니다. 다른 콘텐츠로 교체합니다.</p>
+                        </div>
+
+                        <div class="insight-visual-container up-100">
+                            <div class="insight-dual-charts"
+                                style="display: flex; gap: 90px; justify-content: center; align-items: center;">
+                                <div class="insight-image-box-vertical">
+                                    <img src="chart 1.png" alt="Chart 1" class="insight-img">
+                                </div>
+                                <div class="insight-image-box-vertical">
+                                    <img src="chart 2.png" alt="Chart 2" class="insight-img">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const goalCard = document.querySelector('.goal-card');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        goalCard.classList.add('active');
+                    } else {
+                        goalCard.classList.remove('active');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            if (goalCard) observer.observe(goalCard);
+
+            // Navigator highlighting logic
+            const sections = Array.from(document.querySelectorAll('header[id], section[id]'));
+            const navLinks = Array.from(document.querySelectorAll('.nav-link'));
+
+            function highlightNav() {
+                const scrollPos = window.scrollY + 100;
+                let activeId = sections[0].id;
+
+                for (const section of sections) {
+                    if (scrollPos >= section.offsetTop) {
+                        activeId = section.id;
+                    } else {
+                        break;
+                    }
+                }
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${activeId}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', highlightNav);
+            window.addEventListener('load', highlightNav);
+            highlightNav();
+        });
+    </script>
+    <nav class="glass-nav">
+        <ul>
+            <li><a href="#overview" class="nav-link active">개요</a></li>
+            <li><a href="#problems" class="nav-link">배경</a></li>
+            <li><a href="#planning" class="nav-link">기획</a></li>
+            <li><a href="#contents" class="nav-link">시안</a></li>
+            <li><a href="#insights" class="nav-link">인사이트</a></li>
+        </ul>
+    </nav>
+</body>
+
+</html>
