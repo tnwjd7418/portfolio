@@ -1,0 +1,1462 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESToneID - 포인트 내역</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <style>
+        html {
+            overflow-y: scroll;
+        }
+
+        /* ============================================
+           ESToneID Portfolio Page Styles
+           ============================================ */
+
+        .est-page {
+            background: #FFFFFF;
+            min-height: 100vh;
+            padding-top: 60px;
+        }
+
+        /* ── EST Header ── */
+        .est-header {
+            background: #FFFFFF;
+            border-bottom: 1px solid #D5D7DD;
+            padding: 0 64px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .est-logo {
+            font-family: 'Pretendard', sans-serif;
+            font-weight: 900;
+            font-size: 24px;
+            position: relative;
+        }
+
+        .est-logo-bubble {
+            position: absolute;
+            top: calc(100% + 7px);
+            left: 0;
+            background: #2D3139;
+            color: #FFFFFF;
+            font-family: 'Pretendard', sans-serif;
+            font-size: 12px;
+            font-weight: 500;
+            line-height: 18px;
+            letter-spacing: -0.06px;
+            padding: 10px 14px;
+            border-radius: 8px;
+            white-space: nowrap;
+            z-index: 10;
+            animation: float 2.5s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+
+        .est-logo-bubble::before {
+            content: '';
+            position: absolute;
+            top: -6px;
+            left: 20px;
+            width: 12px;
+            height: 6px;
+            background: #2D3139;
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        }
+
+        .est-nav {
+            display: flex;
+            gap: 45px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .est-nav li a {
+            font-family: 'Pretendard', sans-serif;
+            font-size: 18px;
+            font-weight: 550;
+            color: #ACB1B9;
+            text-decoration: none;
+            cursor: pointer;
+            transition: color 0.2s;
+            letter-spacing: -0.09px;
+            line-height: 24px;
+        }
+
+        .est-nav li a.active {
+            color: #2D3139;
+            font-weight: 700;
+        }
+
+        .est-nav li a:hover {
+            color: #2D3139;
+        }
+
+        .est-user-btn {
+            font-family: 'Pretendard', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            color: #FFFFFF;
+            background: #2D3139;
+            border: none;
+            border-radius: 6px;
+            padding: 7px 12px;
+            cursor: pointer;
+            letter-spacing: -0.07px;
+            line-height: 18px;
+        }
+
+        /* ── Content Container ── */
+        .est-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px 80px;
+            min-height: calc(100vh - 60px - 190px);
+        }
+
+        /* ── Page Sections (tab switching) ── */
+        .est-section {
+            display: none;
+        }
+
+        .est-section.active {
+            display: block;
+        }
+
+        /* ══════════════════════════════════
+           SECTION 1: Point History
+           ══════════════════════════════════ */
+
+        .point-card {
+            background: #378AFF;
+            border-radius: 20px;
+            padding: 50px 24px 24px;
+            text-align: center;
+            margin-bottom: 50px;
+            overflow: hidden;
+        }
+
+        .point-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: #FFC82F;
+            border: 3.333px solid #FFECBD;
+            border-radius: 50%;
+            box-shadow: 0px 5px 11.667px 0px rgba(255, 200, 47, 0.2);
+        }
+
+        .point-icon-letter {
+            font-family: 'Pretendard', sans-serif;
+            font-size: 23px;
+            font-weight: 800;
+            color: #FFFFFF;
+        }
+
+        .point-balance {
+            font-family: 'Pretendard', sans-serif;
+            font-size: 40px;
+            font-weight: 700;
+            color: #FFFFFF;
+            letter-spacing: -0.2px;
+            line-height: 52px;
+        }
+
+        .point-top {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 13px;
+        }
+
+        .point-expiry-badge {
+            display: inline-block;
+            background: rgba(0, 0, 0, 0.1);
+            color: #FFFFFF;
+            font-family: 'Pretendard', sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            padding: 6px 12px;
+            border-radius: 20px;
+            margin-bottom: 55px;
+            letter-spacing: -0.07px;
+            line-height: 18px;
+        }
+
+        .point-expiry-badge strong {
+            font-weight: 550;
+        }
+
+        .point-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .point-action-btn {
+            flex: 1;
+            background: #FFFFFF;
+            border: none;
+            border-radius: 8px;
+            padding: 14px 28px;
+            height: 52px;
+            font-family: 'Pretendard', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: #056DFF;
+            cursor: pointer;
+            transition: background 0.2s;
+            letter-spacing: -0.09px;
+            line-height: 24px;
+        }
+
+        .point-action-btn:hover {
+            background: #F0F6FF;
+        }
+
+        /* History List */
+        .section-title {
+            font-family: 'Pretendard', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: #000000;
+            margin-bottom: 24px;
+            letter-spacing: -0.24px;
+            line-height: 34px;
+        }
+
+        .history-list {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .history-item {
+            display: flex;
+            align-items: center;
+            height: 80px;
+        }
+
+        .history-item:last-child {
+            border-bottom: none;
+        }
+
+        .history-badge {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            border: 1.5px solid #D5D7DD;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-right: 16px;
+        }
+
+        .history-badge span {
+            font-family: 'Pretendard', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            color: #0C0C0D;
+        }
+
+        .history-badge.badge-expire span {
+            color: #ACB1B9;
+        }
+
+        .history-badge.badge-use span {
+            color: #056DFF;
+        }
+
+        .history-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .history-title {
+            font-family: 'Pretendard', sans-serif;
+            font-size: 15px;
+            font-weight: 550;
+            color: #0C0C0D;
+            margin-bottom: 3px;
+            letter-spacing: -0.075px;
+            line-height: 20px;
+        }
+
+        .history-meta {
+            font-family: 'Pretendard', sans-serif;
+            font-size: 14px;
+            font-weight: 550;
+            color: #777D88;
+            letter-spacing: -0.14px;
+            line-height: 22px;
+        }
+
+        .history-meta .meta-category {
+            margin-left: 4px;
+            color: #ACB1B9;
+            font-weight: 400;
+            letter-spacing: -0.07px;
+            line-height: 18px;
+        }
+
+        .history-points {
+            font-family: 'Pretendard', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            color: #0C0C0D;
+            flex-shrink: 0;
+            margin-left: 16px;
+            letter-spacing: -0.16px;
+            line-height: 26px;
+        }
+
+        .history-points.points-expire {
+            color: #ACB1B9;
+        }
+
+        .history-points.points-use {
+            color: #056DFF;
+        }
+
+        .more-btn {
+            width: 100%;
+            background: #F6F7F9;
+            border: none;
+            border-radius: 8px;
+            padding: 14px 28px;
+            height: 52px;
+            font-family: 'Pretendard', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: #777D88;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background 0.2s;
+            letter-spacing: -0.09px;
+            line-height: 24px;
+        }
+
+        .more-btn:hover {
+            background: #ECEEF1;
+        }
+
+        /* ══════════════════════════════════
+           SECTION 2: Subscription
+           ══════════════════════════════════ */
+
+        /* Sub-tabs (pill style) */
+        .sub-tabs {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .sub-tab {
+            font-family: 'Pretendard', sans-serif;
+            font-size: 14px;
+            font-weight: 550;
+            padding: 7px 16px;
+            border-radius: 999px;
+            border: 1px solid #D5D7DD;
+            background: #FFFFFF;
+            color: #0C0C0D;
+            cursor: pointer;
+            transition: all 0.2s;
+            height: 32px;
+            letter-spacing: -0.07px;
+            line-height: 18px;
+        }
+
+        .sub-tab.active {
+            background: #0C0C0D;
+            color: #FFFFFF;
+            border-color: #0C0C0D;
+            font-weight: 700;
+        }
+
+        .sub-tab:hover:not(.active) {
+            border-color: #999;
+        }
+
+        .sub-content {
+            display: none;
+        }
+
+        .sub-content.active {
+            display: block;
+        }
+
+        .empty-state {
+            background: #ECEEF1;
+            border-radius: 16px;
+            padding: 80px 20px;
+            text-align: center;
+            font-family: 'Pretendard', sans-serif;
+            font-size: 15px;
+            color: #999;
+        }
+
+        /* Subscription Cards */
+        .sub-card-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .sub-card {
+            background: #FFFFFF;
+            border: 1px solid #D5D7DD;
+            border-radius: 20px;
+            padding: 23px 22px;
+            box-shadow: 0px 6px 12px 0px rgba(34, 37, 43, 0.02),
+                0px 4px 8px 0px rgba(34, 37, 43, 0.02),
+                0px 2px 10px 0px rgba(34, 37, 43, 0.02);
+        }
+
+        .sub-card-inner {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .sub-card-header {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .sub-card-name {
+            font-family: 'Pretendard', sans-serif;
+            font-size: 32px;
+            font-weight: 550;
+            color: #000000;
+            letter-spacing: -0.16px;
+            line-height: 46px;
+        }
+
+        .sub-card-period {
+            font-family: 'Pretendard', sans-serif;
+            font-size: 15px;
+            font-weight: 400;
+            color: #777D88;
+            letter-spacing: -0.075px;
+            line-height: 20px;
+        }
+
+        .sub-card-period strong {
+            color: #0C0C0D;
+        }
+
+        .sub-card-body {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .sub-card-pricing {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .sub-card-price-row {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .sub-card-plan-badge {
+            width: 18px;
+            height: 18px;
+            border-radius: 9px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Pretendard', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: -0.06px;
+            line-height: 16px;
+        }
+
+        .sub-card-plan-badge.monthly {
+            background: #EBF5FF;
+            color: #056DFF;
+        }
+
+        .sub-card-plan-badge.yearly {
+            background: #F7F6FE;
+            color: #8265F9;
+        }
+
+        .sub-card-price {
+            font-family: 'Pretendard', sans-serif;
+            font-size: 18px;
+            font-weight: 400;
+            color: #000000;
+            letter-spacing: -0.09px;
+            line-height: 24px;
+        }
+
+        .sub-card-price-unit {
+            font-family: 'Pretendard', sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            color: #777D88;
+            letter-spacing: -0.07px;
+            line-height: 18px;
+        }
+
+        .sub-card-status-row {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 0;
+        }
+
+        .sub-card-dday {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1px 4px;
+            border-radius: 999px;
+            font-family: 'Pretendard', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            color: #FFFFFF;
+            background: #378AFF;
+            letter-spacing: -0.06px;
+            line-height: 16px;
+            min-width: 38px;
+        }
+
+        .sub-card-renew-text {
+            font-family: 'Pretendard', sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            color: #056DFF;
+            letter-spacing: -0.07px;
+            line-height: 18px;
+        }
+
+        .sub-card-cancel-link {
+            font-family: 'Pretendard', sans-serif;
+            font-size: 14px;
+            font-weight: 550;
+            color: #ACB1B9;
+            letter-spacing: -0.07px;
+            line-height: 18px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 2px;
+        }
+
+        .sub-card-cancel-link .chevron-right {
+            width: 16px;
+            height: 16px;
+            fill: none;
+            stroke: #ACB1B9;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .sub-card-error-row {
+            display: flex;
+            align-items: center;
+            gap: 3px;
+            padding: 4px 0;
+        }
+
+        .sub-card-error-icon {
+            width: 18px;
+            height: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #FF5C5E;
+        }
+
+        .sub-card-error-icon svg {
+            width: 15px;
+            height: 15px;
+        }
+
+        .sub-card-error-text {
+            font-family: 'Pretendard', sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            color: #FF5C5E;
+            letter-spacing: -0.07px;
+            line-height: 18px;
+        }
+
+        .sub-card-actions {
+            display: flex;
+            gap: 12px;
+        }
+
+        .sub-card-action-btn {
+            background: #F6F7F9;
+            border: 1px solid #D5D7DD;
+            border-radius: 8px;
+            padding: 12px 28px;
+            height: 48px;
+            font-family: 'Pretendard', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: #2D3139;
+            cursor: pointer;
+            transition: background 0.2s;
+            letter-spacing: -0.09px;
+            line-height: 24px;
+            box-shadow: 0px 6px 12px 0px rgba(34, 37, 43, 0.02),
+                0px 4px 8px 0px rgba(34, 37, 43, 0.02),
+                0px 2px 10px 0px rgba(34, 37, 43, 0.02);
+        }
+
+        .sub-card-action-btn:hover {
+            background: #ECEEF1;
+        }
+
+        .sub-card-action-btn.primary {
+            color: #056DFF;
+        }
+
+        /* ══════════════════════════════════
+           SECTION 3: Inquiry
+           ══════════════════════════════════ */
+
+        /* FAQ Accordion */
+        .faq-list {
+            border-top: 2px solid #1A1A1A;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #F0F0F0;
+        }
+
+        .faq-question {
+            display: flex;
+            align-items: center;
+            padding: 24px 0;
+            cursor: pointer;
+            gap: 12px;
+        }
+
+        .faq-q-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #F0F1F3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .faq-q-icon span {
+            font-family: 'Pretendard', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            color: #999;
+        }
+
+        .faq-q-text {
+            flex: 1;
+        }
+
+        .faq-q-title {
+            font-family: 'Pretendard', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            color: #1A1A1A;
+            margin-bottom: 4px;
+        }
+
+        .faq-q-category {
+            font-family: 'Pretendard', sans-serif;
+            font-size: 12px;
+            color: #999;
+        }
+
+        .faq-chevron {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s;
+            flex-shrink: 0;
+        }
+
+        .faq-chevron svg {
+            width: 14px;
+            height: 8px;
+            fill: none;
+            stroke: #ACB1B9;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .faq-item.open .faq-chevron {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-answer-inner {
+            padding: 0 0 24px 40px;
+            font-family: 'Pretendard', sans-serif;
+            font-size: 14px;
+            color: #666;
+            line-height: 1.7;
+        }
+
+        .faq-item.open .faq-answer {
+            max-height: 300px;
+        }
+
+        /* 1:1 Inquiry List */
+        .inquiry-list {
+            border-top: 2px solid #1A1A1A;
+        }
+
+        .inquiry-item {
+            display: flex;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #F0F0F0;
+            cursor: pointer;
+        }
+
+        .inquiry-info {
+            flex: 1;
+        }
+
+        .inquiry-title {
+            font-family: 'Pretendard', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            color: #1A1A1A;
+            margin-bottom: 4px;
+        }
+
+        .inquiry-meta {
+            font-family: 'Pretendard', sans-serif;
+            font-size: 13px;
+            color: #999;
+        }
+
+        .inquiry-status {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-family: 'Pretendard', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: #22B07D;
+            flex-shrink: 0;
+        }
+
+        .inquiry-status .chevron-right {
+            width: 16px;
+            height: 16px;
+            fill: none;
+            stroke: #22B07D;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .inquiry-btn-wrap {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .inquiry-submit-btn {
+            display: inline-block;
+            background: #056DFF;
+            color: #FFFFFF;
+            font-family: 'Pretendard', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            padding: 14px 48px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .inquiry-submit-btn:hover {
+            background: #0558CC;
+        }
+
+        /* ══════════════════════════════════
+           Footer
+           ══════════════════════════════════ */
+        .est-footer {
+            background: #F6F7F9;
+            padding: 38px 20px 32px;
+            text-align: center;
+        }
+
+        .est-footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 23px;
+            margin-bottom: 15px;
+            list-style: none;
+            padding: 0;
+        }
+
+        .est-footer-links a {
+            font-family: 'Pretendard', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            color: #8B95A1;
+            text-decoration: none;
+        }
+
+        .est-footer-links a.bold {
+            font-weight: 700;
+            color: #4E5968;
+        }
+
+        .est-footer-copy {
+            font-family: 'Pretendard', sans-serif;
+            font-size: 13px;
+            color: #8B95A1;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .est-footer-info {
+            font-family: 'Pretendard', sans-serif;
+            font-size: 12px;
+            color: #8B95A1;
+            line-height: 20px;
+            letter-spacing: -0.06px;
+        }
+
+        .est-footer-info strong {
+            font-weight: 550;
+        }
+
+        /* ══════════════════════════════════
+           Responsive
+           ══════════════════════════════════ */
+        @media (max-width: 768px) {
+            .est-header {
+                padding: 0 20px;
+            }
+
+            .est-nav {
+                gap: 24px;
+            }
+
+            .est-nav li a {
+                font-size: 14px;
+            }
+
+            .point-card {
+                padding: 32px 20px 24px;
+            }
+
+            .point-balance {
+                font-size: 36px;
+            }
+
+            .point-action-btn {
+                font-size: 14px;
+                padding: 12px 0;
+            }
+
+            .faq-q-title {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .est-header {
+                padding: 0 16px;
+                height: 56px;
+            }
+
+            .est-logo {
+                font-size: 20px;
+            }
+
+            .est-nav {
+                gap: 16px;
+            }
+
+            .est-nav li a {
+                font-size: 13px;
+            }
+
+            .est-user-btn {
+                font-size: 12px;
+                padding: 4px 12px;
+            }
+
+            .est-content {
+                padding: 24px 16px 60px;
+            }
+
+            .point-card {
+                border-radius: 12px;
+                padding: 28px 16px 20px;
+            }
+
+            .point-balance {
+                font-size: 32px;
+            }
+
+            .point-icon {
+                width: 40px;
+                height: 40px;
+            }
+
+            .point-icon-letter {
+                font-size: 22px;
+            }
+
+            .section-title {
+                font-size: 18px;
+            }
+
+            .history-badge {
+                width: 40px;
+                height: 40px;
+            }
+
+            .history-title,
+            .faq-q-title,
+            .inquiry-title {
+                font-size: 14px;
+            }
+
+            .history-meta,
+            .faq-q-category,
+            .inquiry-meta {
+                font-size: 12px;
+            }
+
+            .history-points {
+                font-size: 14px;
+            }
+
+            .sub-tab {
+                font-size: 13px;
+                padding: 6px 16px;
+            }
+
+            .empty-state {
+                padding: 60px 16px;
+                font-size: 14px;
+            }
+
+            .faq-answer-inner {
+                padding-left: 0;
+                font-size: 13px;
+            }
+
+            .inquiry-submit-btn {
+                width: 100%;
+                padding: 14px 0;
+            }
+
+            .est-footer-links {
+                gap: 16px;
+            }
+
+            .est-footer-info {
+                font-size: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Portfolio GNB -->
+    <nav class="top-gnb">
+        <div class="gnb-inner">
+            <div class="gnb-logo">Lim su jeong</div>
+            <ul class="gnb-menu">
+                <li><a href="index.html" class="gnb-link">Zum web</a></li>
+                <li><a href="ordi.html" class="gnb-link">Ordi</a></li>
+                <li><a href="estoneid.html" class="gnb-link active">ESToneID</a></li>
+                <li><a href="Lim Su Jeong 260303_ 01083864001.pdf" class="gnb-link" download>Other project<svg
+                            class="download-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 15V3M12 15L8 11M12 15L16 11M2 17V20C2 21 21 21 22 20V17" stroke="currentColor"
+                                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="est-page">
+        <!-- EST Header -->
+        <div class="est-header">
+            <div class="est-logo">
+                <img src="est.png" alt="EST" style="height: 22px;">
+                <div class="est-logo-bubble">모든 디바이스 환경에서 사용 가능한<br>모바일 퍼스트 마이페이지를 디자인했습니다</div>
+            </div>
+            <ul class="est-nav">
+                <li><a class="active" data-section="point-history">포인트 내역</a></li>
+                <li><a data-section="subscription">구독 관리</a></li>
+                <li><a data-section="inquiry">문의</a></li>
+            </ul>
+            <button class="est-user-btn">임수정 님 <svg width="12" height="7" viewBox="0 0 12 7" fill="none"
+                    style="margin-left:4px;vertical-align:middle;">
+                    <path d="M1 1L6 6L11 1" stroke="white" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg></button>
+        </div>
+
+        <!-- Main Content -->
+        <div class="est-content">
+
+            <!-- ═══ SECTION 1: 포인트 내역 ═══ -->
+            <div id="point-history" class="est-section active">
+                <div class="point-card">
+                    <div class="point-top">
+                        <div class="point-icon">
+                            <span class="point-icon-letter">P</span>
+                        </div>
+                        <div class="point-balance">300P</div>
+                    </div>
+                    <div class="point-expiry-badge">익월 소멸 예정 포인트 <strong>100P</strong></div>
+                    <div class="point-actions">
+                        <button class="point-action-btn">포인트 전환</button>
+                        <button class="point-action-btn">포인트 선물</button>
+                    </div>
+                </div>
+
+                <h2 class="section-title">포인트 내역</h2>
+                <div class="history-list">
+                    <div class="history-item">
+                        <div class="history-badge badge-expire"><span>소멸</span></div>
+                        <div class="history-info">
+                            <div class="history-title">회원가입 이벤트 적립</div>
+                            <div class="history-meta">2023. 03. 01 <span class="meta-category">이벤트 적립</span></div>
+                        </div>
+                        <div class="history-points points-expire">- 1,000P</div>
+                    </div>
+                    <div class="history-item">
+                        <div class="history-badge"><span>적립</span></div>
+                        <div class="history-info">
+                            <div class="history-title">출석 이벤트 적립</div>
+                            <div class="history-meta">2023. 03. 01 <span class="meta-category">이벤트 적립</span></div>
+                        </div>
+                        <div class="history-points">+ 1,100P</div>
+                    </div>
+                    <div class="history-item">
+                        <div class="history-badge"><span>적립</span></div>
+                        <div class="history-info">
+                            <div class="history-title">회원가입 이벤트 적립</div>
+                            <div class="history-meta">2023. 03. 01 <span class="meta-category">이벤트 적립</span></div>
+                        </div>
+                        <div class="history-points">+ 1,100P</div>
+                    </div>
+                    <div class="history-item">
+                        <div class="history-badge badge-use"><span>사용</span></div>
+                        <div class="history-info">
+                            <div class="history-title">네이버페이 포인트 전환</div>
+                            <div class="history-meta">2023. 03. 01 <span class="meta-category">이벤트 적립</span></div>
+                        </div>
+                        <div class="history-points points-use">- 1,100P</div>
+                    </div>
+                    <div class="history-item">
+                        <div class="history-badge"><span>적립</span></div>
+                        <div class="history-info">
+                            <div class="history-title">회원가입 이벤트 적립</div>
+                            <div class="history-meta">2023. 03. 01 <span class="meta-category">이벤트 적립</span></div>
+                        </div>
+                        <div class="history-points">+ 1,100P</div>
+                    </div>
+                </div>
+                <button class="more-btn">더보기</button>
+            </div>
+
+            <!-- ═══ SECTION 2: 구독 관리 ═══ -->
+            <div id="subscription" class="est-section">
+                <div class="sub-tabs">
+                    <button class="sub-tab active" data-sub="sub-manage">구독 관리</button>
+                    <button class="sub-tab" data-sub="sub-payment">결제 내역</button>
+                    <button class="sub-tab" data-sub="sub-method">정기 결제 수단 관리</button>
+                </div>
+
+                <div id="sub-manage" class="sub-content active">
+                    <h2 class="section-title">구독 중인 서비스</h2>
+                    <div class="sub-card-list">
+                        <!-- Card 1: Monthly, D-20 active renewal -->
+                        <div class="sub-card">
+                            <div class="sub-card-inner">
+                                <div class="sub-card-header">
+                                    <div class="sub-card-name">알툴즈 AD-ZERO</div>
+                                    <div class="sub-card-period"><strong>이용기간</strong> 2025. 10.15 - 2025.11.14</div>
+                                </div>
+                                <div class="sub-card-body">
+                                    <div class="sub-card-pricing">
+                                        <div class="sub-card-price-row">
+                                            <span class="sub-card-plan-badge monthly">월</span>
+                                            <span class="sub-card-price">5,900</span>
+                                            <span class="sub-card-price-unit">원</span>
+                                        </div>
+                                        <div class="sub-card-status-row">
+                                            <span class="sub-card-dday">D-20</span>
+                                            <span class="sub-card-renew-text">yyyy.mm.dd 자동 결제 예정</span>
+                                            <span class="sub-card-cancel-link">구독 해지<svg class="chevron-right"
+                                                    viewBox="0 0 16 16">
+                                                    <path d="M6 4L10 8L6 12" />
+                                                </svg></span>
+                                        </div>
+                                    </div>
+                                    <div class="sub-card-actions">
+                                        <button class="sub-card-action-btn">정기 결제 수단 관리</button>
+                                        <button class="sub-card-action-btn">플랜 변경</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 2: Yearly, D-7 with cancel scheduled -->
+                        <div class="sub-card">
+                            <div class="sub-card-inner">
+                                <div class="sub-card-header">
+                                    <div class="sub-card-name">알툴즈 AD-ZERO</div>
+                                    <div class="sub-card-period"><strong>이용기간</strong> 2025. 10.15 - 2025.11.14</div>
+                                </div>
+                                <div class="sub-card-body">
+                                    <div class="sub-card-pricing">
+                                        <div class="sub-card-price-row">
+                                            <span class="sub-card-plan-badge yearly">연</span>
+                                            <span class="sub-card-price">5,900</span>
+                                            <span class="sub-card-price-unit">원</span>
+                                        </div>
+                                        <div class="sub-card-error-row">
+                                            <span class="sub-card-error-icon">
+                                                <svg viewBox="0 0 18 18" fill="currentColor">
+                                                    <circle cx="9" cy="9" r="8" fill="currentColor" /><text x="9" y="13"
+                                                        text-anchor="middle" fill="white" font-size="12"
+                                                        font-weight="700">!</text>
+                                                </svg>
+                                            </span>
+                                            <span class="sub-card-error-text">yyyy.mm.dd 이후 해지 (만료 후 자동 중단)</span>
+                                        </div>
+                                    </div>
+                                    <div class="sub-card-actions">
+                                        <button class="sub-card-action-btn">정기 결제 수단 관리</button>
+                                        <button class="sub-card-action-btn primary">해지 예약 취소</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 3: Yearly, payment error -->
+                        <div class="sub-card">
+                            <div class="sub-card-inner">
+                                <div class="sub-card-header">
+                                    <div class="sub-card-name">알툴즈 AD-ZERO</div>
+                                    <div class="sub-card-period"><strong>이용기간</strong> 2025. 10.15 - 2025.11.14</div>
+                                </div>
+                                <div class="sub-card-body">
+                                    <div class="sub-card-pricing">
+                                        <div class="sub-card-price-row">
+                                            <span class="sub-card-plan-badge yearly">연</span>
+                                            <span class="sub-card-price">5,900</span>
+                                            <span class="sub-card-price-unit">원</span>
+                                        </div>
+                                        <div class="sub-card-error-row">
+                                            <span class="sub-card-error-icon">
+                                                <svg viewBox="0 0 18 18" fill="currentColor">
+                                                    <circle cx="9" cy="9" r="8" fill="currentColor" /><text x="9" y="13"
+                                                        text-anchor="middle" fill="white" font-size="12"
+                                                        font-weight="700">!</text>
+                                                </svg>
+                                            </span>
+                                            <span class="sub-card-error-text">결제 수단에 오류가 있습니다. 정기 결제 수단을 변경하거나 잔고를
+                                                확인해보세요.</span>
+                                        </div>
+                                    </div>
+                                    <div class="sub-card-actions">
+                                        <button class="sub-card-action-btn">정기 결제 수단 관리</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="sub-payment" class="sub-content">
+                    <h2 class="section-title">결제 내역</h2>
+                    <div class="empty-state">결제 내역이 없어요</div>
+                </div>
+
+                <div id="sub-method" class="sub-content">
+                    <h2 class="section-title">정기 결제 수단</h2>
+                    <div class="empty-state">등록된 결제 수단이 없어요</div>
+                </div>
+            </div>
+
+            <!-- ═══ SECTION 3: 문의 ═══ -->
+            <div id="inquiry" class="est-section">
+                <div class="sub-tabs">
+                    <button class="sub-tab active" data-sub="inq-faq">자주 묻는 질문</button>
+                    <button class="sub-tab" data-sub="inq-board">1:1 문의</button>
+                </div>
+
+                <div id="inq-faq" class="sub-content active">
+                    <h2 class="section-title">자주 묻는 질문</h2>
+                    <div class="faq-list">
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <div class="faq-q-icon"><span>Q</span></div>
+                                <div class="faq-q-text">
+                                    <div class="faq-q-title">포인트는 어디에 사용할 수 있나요?</div>
+                                    <div class="faq-q-category">포인트 문의</div>
+                                </div>
+                                <div class="faq-chevron"><svg viewBox="0 0 14 8">
+                                        <path d="M1 1L7 7L13 1" />
+                                    </svg></div>
+                            </div>
+                            <div class="faq-answer">
+                                <div class="faq-answer-inner">포인트는 ESToneID에서 제공하는 다양한 서비스 구독이나 디지털 콘텐츠 구매 시 사용하실 수
+                                    있습니다. 포인트 전환 메뉴에서 사용 가능한 서비스를 확인해 보세요.</div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <div class="faq-q-icon"><span>Q</span></div>
+                                <div class="faq-q-text">
+                                    <div class="faq-q-title">포인트 유효기간은 어떻게 되나요?</div>
+                                    <div class="faq-q-category">포인트 문의</div>
+                                </div>
+                                <div class="faq-chevron"><svg viewBox="0 0 14 8">
+                                        <path d="M1 1L7 7L13 1" />
+                                    </svg></div>
+                            </div>
+                            <div class="faq-answer">
+                                <div class="faq-answer-inner">포인트의 유효기간은 적립일로부터 1년입니다. 유효기간이 만료된 포인트는 자동으로 소멸되며, 소멸 예정
+                                    포인트는 포인트 내역에서 확인하실 수 있습니다.</div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <div class="faq-q-icon"><span>Q</span></div>
+                                <div class="faq-q-text">
+                                    <div class="faq-q-title">포인트는 언제 적립되나요?</div>
+                                    <div class="faq-q-category">포인트 문의</div>
+                                </div>
+                                <div class="faq-chevron"><svg viewBox="0 0 14 8">
+                                        <path d="M1 1L7 7L13 1" />
+                                    </svg></div>
+                            </div>
+                            <div class="faq-answer">
+                                <div class="faq-answer-inner">포인트는 미션 완료 후 즉시 적립됩니다. 일부 광고 적립의 경우 최대 24시간 이내에 적립될 수
+                                    있습니다.</div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <div class="faq-q-icon"><span>Q</span></div>
+                                <div class="faq-q-text">
+                                    <div class="faq-q-title">보유 포인트는 어디에서 확인하나요?</div>
+                                    <div class="faq-q-category">포인트 문의</div>
+                                </div>
+                                <div class="faq-chevron"><svg viewBox="0 0 14 8">
+                                        <path d="M1 1L7 7L13 1" />
+                                    </svg></div>
+                            </div>
+                            <div class="faq-answer">
+                                <div class="faq-answer-inner">마이페이지 > 포인트 내역에서 현재 보유 포인트와 적립/사용 내역을 확인하실 수 있습니다.</div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <div class="faq-q-icon"><span>Q</span></div>
+                                <div class="faq-q-text">
+                                    <div class="faq-q-title">구독 결제 취소는 어떻게 하나요?</div>
+                                    <div class="faq-q-category">결제 문의</div>
+                                </div>
+                                <div class="faq-chevron"><svg viewBox="0 0 14 8">
+                                        <path d="M1 1L7 7L13 1" />
+                                    </svg></div>
+                            </div>
+                            <div class="faq-answer">
+                                <div class="faq-answer-inner">구독 관리 탭에서 해당 서비스의 '구독 해지' 버튼을 클릭하시면 됩니다. 해지 후에도 현재 구독 기간이
+                                    끝날 때까지는 서비스를 이용하실 수 있습니다.</div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <div class="faq-q-icon"><span>Q</span></div>
+                                <div class="faq-q-text">
+                                    <div class="faq-q-title">정기 결제 수단 변경은 어떻게 하나요?</div>
+                                    <div class="faq-q-category">결제 문의</div>
+                                </div>
+                                <div class="faq-chevron"><svg viewBox="0 0 14 8">
+                                        <path d="M1 1L7 7L13 1" />
+                                    </svg></div>
+                            </div>
+                            <div class="faq-answer">
+                                <div class="faq-answer-inner">구독 관리 > 정기 결제 수단 관리에서 기존 결제 수단을 삭제하고 새로운 결제 수단을 등록하실 수
+                                    있습니다.</div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <div class="faq-q-icon"><span>Q</span></div>
+                                <div class="faq-q-text">
+                                    <div class="faq-q-title">통합회원(ESToneID)으로 로그인해야만 이용 가능한가요?</div>
+                                    <div class="faq-q-category">회원정보 문의</div>
+                                </div>
+                                <div class="faq-chevron"><svg viewBox="0 0 14 8">
+                                        <path d="M1 1L7 7L13 1" />
+                                    </svg></div>
+                            </div>
+                            <div class="faq-answer">
+                                <div class="faq-answer-inner">네, ESToneID 통합 계정으로 로그인해야 포인트 적립, 구독 관리 등 모든 서비스를 이용하실 수
+                                    있습니다. 카카오, 네이버 등 소셜 로그인을 통해 간편하게 가입하실 수 있습니다.</div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <div class="faq-q-icon"><span>Q</span></div>
+                                <div class="faq-q-text">
+                                    <div class="faq-q-title">서비스 이용 중 오류가 발생했어요. 어디로 문의하나요?</div>
+                                    <div class="faq-q-category">기타 문의</div>
+                                </div>
+                                <div class="faq-chevron"><svg viewBox="0 0 14 8">
+                                        <path d="M1 1L7 7L13 1" />
+                                    </svg></div>
+                            </div>
+                            <div class="faq-answer">
+                                <div class="faq-answer-inner">1:1 문의 탭을 통해 문의해 주시면 담당자가 확인 후 빠르게 답변드리겠습니다.
+                                    이메일(estaid@estaid.ai)로도 문의 가능합니다.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="inq-board" class="sub-content">
+                    <h2 class="section-title">1:1 문의</h2>
+                    <div class="inquiry-list">
+                        <div class="inquiry-item">
+                            <div class="inquiry-info">
+                                <div class="inquiry-title">문의 ux 확인</div>
+                                <div class="inquiry-meta">2025. 11. 12 · 기타 문의</div>
+                            </div>
+                            <div class="inquiry-status">답변 완료<svg class="chevron-right" viewBox="0 0 16 16">
+                                    <path d="M6 4L10 8L6 12" />
+                                </svg></div>
+                        </div>
+                        <div class="inquiry-item">
+                            <div class="inquiry-info">
+                                <div class="inquiry-title">ㅁㄴㅇㄹ</div>
+                                <div class="inquiry-meta">2025. 11. 10 · 홈페이지 문의</div>
+                            </div>
+                            <div class="inquiry-status">답변 완료<svg class="chevron-right" viewBox="0 0 16 16">
+                                    <path d="M6 4L10 8L6 12" />
+                                </svg></div>
+                        </div>
+                    </div>
+                    <div class="inquiry-btn-wrap">
+                        <button class="inquiry-submit-btn">1:1 문의하기</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Footer -->
+        <footer class="est-footer">
+            <ul class="est-footer-links">
+                <li><a href="#">약관 및 정책</a></li>
+                <li><a href="#">공지사항</a></li>
+                <li><a href="#" class="bold">개인정보처리방침</a></li>
+            </ul>
+            <p class="est-footer-copy">© ESTaid Corp. All rights reserved</p>
+            <p class="est-footer-info">
+                (주)이스트에이드 서울시 서초구 반포대로 3 이스트빌딩 (우)06711<br>
+                <strong>대표이사 :</strong> 김남현 ｜ <strong>사업자등록번호 </strong>: 598-87-00226 ｜ <strong>통신판매업신고번호 :</strong>
+                2019-서울서초-1649 ｜ <strong>TEL)</strong> 02-583-4640 ｜ <strong>FAX)</strong> 02-876-6018 ｜
+                <strong>E-mail)</strong> estaid@estaid.ai
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        // ── Main Tab Navigation (포인트 내역 / 구독 관리 / 문의) ──
+        document.querySelectorAll('.est-nav a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = link.getAttribute('data-section');
+
+                // Update nav active state
+                document.querySelectorAll('.est-nav a').forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+
+                // Show target section
+                document.querySelectorAll('.est-section').forEach(s => s.classList.remove('active'));
+                document.getElementById(target).classList.add('active');
+            });
+        });
+
+        // ── Sub Tab Navigation (구독 관리 sub-tabs, 문의 sub-tabs) ──
+        document.querySelectorAll('.sub-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                const target = tab.getAttribute('data-sub');
+                const parent = tab.closest('.est-section');
+
+                // Update sub-tab active state within same section
+                parent.querySelectorAll('.sub-tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+
+                // Show target sub-content
+                parent.querySelectorAll('.sub-content').forEach(c => c.classList.remove('active'));
+                parent.querySelector('#' + target).classList.add('active');
+            });
+        });
+
+        // ── FAQ Accordion ──
+        document.querySelectorAll('.faq-question').forEach(q => {
+            q.addEventListener('click', () => {
+                const item = q.closest('.faq-item');
+                item.classList.toggle('open');
+            });
+        });
+    </script>
+</body>
+
+</html>
